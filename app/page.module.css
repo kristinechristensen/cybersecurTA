@@ -1,0 +1,37 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+}
+
+.title1 {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:3em;
+  font-weight:bold;
+  color:#333;
+  display:block;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 4rem 0;
+}
+
+.logo {
+  position: relative;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .content {
+    padding: 4rem;
+  }
+
+   .center {
+    padding: 4rem 0 4rem;
+  }
+}
