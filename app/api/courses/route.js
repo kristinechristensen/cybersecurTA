@@ -1,7 +1,7 @@
 import connectToDB from '@/utils/database';
 import Course from '@/models/course';
 
-/* CREATE School  ****************************************************************/
+/* CREATE Course  ****************************************************************/
 
 export const POST = async(request) => {
  //destructing JSON values from request

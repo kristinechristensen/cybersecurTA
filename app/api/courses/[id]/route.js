@@ -1,4 +1,4 @@
-// manage user data
+// manage course data
 import connectToDB from '@/utils/database';
 import Course from '@/models/course';
 
