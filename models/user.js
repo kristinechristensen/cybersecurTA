@@ -9,12 +9,16 @@ const UserSchema = new Schema ({
     }, 
     emailG:{
        type:String, 
-       unique:[true, "This email already exists"] 
-    }, 
+       /*unique:[true, "This email already exists"] */
+    },
     password:{
         type:String,
         required:[true, "Password Required"]
     }, 
+    active:{
+        type:Boolean,
+        default:true
+    },
     firstName:{
         type:String, 
         required:[true, "First Name Required"]

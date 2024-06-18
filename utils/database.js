@@ -1,8 +1,6 @@
-//Manages the relationship between data and provide schema validation
-
+/* Connect to Database ****************************** */
 import mongoose from "mongoose";
 
-//checking if you're connected
 let isConnected = false;
 
 const connectToDB = async()=>{
