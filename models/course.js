@@ -29,6 +29,6 @@ const CourseSchema = new Schema ({
 });
 
 //checks to see if the model User exists, if it doesn't create one, otherwise use the User model
-const Course = model.Course || model("Course", CourseSchema);
+const Course = models.Course || model("Course", CourseSchema);
 
 export default Course;

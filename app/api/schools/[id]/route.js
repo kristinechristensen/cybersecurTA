@@ -17,6 +17,4 @@ export const GET = async(request, {params}) => {
         console.log(error);
         return new Response ("School information NOT found", {status:500});
     }
-    
-    
 }

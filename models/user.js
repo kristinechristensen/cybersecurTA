@@ -29,23 +29,23 @@ const UserSchema = new Schema ({
     },
     phone:{
         type:String, 
-        required:[true, "Phone Number Required"]
+        //required:[true, "Phone Number Required"]
     },
     sAddress:{
         type:String, 
-        required:[true, "Address Required"]
+        //required:[true, "Address Required"]
     },
     city:{
         type:String, 
-        required:[true, "City Required"]
+        //required:[true, "City Required"]
     },
     state:{
         type:String, 
-        required:[true, "State Required"]
+        //required:[true, "State Required"]
     },
     zip:{
         type:Number, 
-        required:[true, "Zip Code Required"]
+        //required:[true, "Zip Code Required"]
     },
     userType:{
         type:Number, 
@@ -54,19 +54,19 @@ const UserSchema = new Schema ({
     school:{
         type:Schema.Types.ObjectId, 
         ref:'School',
-        //required:[true, "Please specify your school"]
+        required:[true, "Please specify your school"]
     },
     pos:{
         type:String, 
-        required:[true, "Program of Study Required"]
+       // required:[true, "Program of Study Required"]
     },
     level:{
         type:String, 
-        required:[true, "Level of Education Required"]
+      //  required:[true, "Level of Education Required"]
     },
     cert:{
         type:[String], 
-        required:[true, "Certifications Required"]
+       // required:[true, "Certifications Required"]
     }, 
     skills:{
         type:[String], 
@@ -88,6 +88,6 @@ const UserSchema = new Schema ({
 });
 
 //checks to see if the model User exists, if it doesn't create one, otherwise use the User model
-const User = model.User || model("User", UserSchema);
+const User = models?.User || model("User", UserSchema);
 
 export default User;
