@@ -36,7 +36,20 @@ const RegisterUser = ({params})=> {
     
 
 
-            <input type="submit"/>
+        {/*map the school  */}
+
+
+            
+
+
+        <select>
+        {schoolList.map(elem=>(
+        <option value={elem._id}>{elem.name}</option> 
+        ))}
+        </select>    
+
+        <input type="submit"/>
+
         </form>
         )
     }

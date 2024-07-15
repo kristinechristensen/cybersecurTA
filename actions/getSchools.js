@@ -7,7 +7,7 @@ export const getSchools = async()=>{
 
     try {
         await connectToDB();
-        const schools = await School.find({}); //bring back all schools
+        const schools = await School.find({}).sort({name:"asc"}); //bring back all schools alphabetically. 
         return schools;
     }
     catch(error) {
