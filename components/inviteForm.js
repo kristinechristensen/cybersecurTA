@@ -8,7 +8,9 @@ export const InviteForm = ()=> {
     const[error, setError] = useState("");
     const[pending, startTransition] = useTransition(); //hook to use server actions
 
-    const submitInvite = ()=>{
+    const submitInvite = (e)=>{
+        e.preventDefault();
+        console.log(email)
         setSuccess("");  //resetting the value based on current request attempt
         setError("");
         startTransition(()=>{  
@@ -25,7 +27,7 @@ export const InviteForm = ()=> {
 
     return (
     //create form 
-    <form onSubmit={submitInvite}>
+    <form onSubmit={(e)=>submitInvite(e)}>
         <input type="text" name="email" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
         <select value={userType} onChange={(e)=>{setUserType(e.target.value)}}>
             <option value="2">Student</option>
@@ -33,6 +35,8 @@ export const InviteForm = ()=> {
             <option value="0">Administrator</option>
         </select>
         <input type="submit"/>
+        {success}
+        {error}
     </form>
     )
 }

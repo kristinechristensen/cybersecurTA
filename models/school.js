@@ -3,6 +3,7 @@ import { Schema, model, models } from "mongoose";
 const SchoolSchema = new Schema ({
     name:{
         type:String, 
+        unique:true,
         required:[true, "School name Required"]
     },
     sAddress:{

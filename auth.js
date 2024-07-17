@@ -67,6 +67,10 @@ export const {handlers, signIn, signOut, auth} = NextAuth({
               token.gmail = user.emailG;
             }
             return token; //turn user into a token //persistant application
+          },
+          session({session, token}){
+           session.user = token; //update the session with values set on the jwt callback
+           return session;
           }
         }
 });
