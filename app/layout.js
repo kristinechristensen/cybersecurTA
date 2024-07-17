@@ -1,7 +1,7 @@
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import {SessionProvider} from "next-auth/react"; //session data for the app - included in layout so it can be used throughout the program
-
+import { Header } from "@/components/nav";
 const inter = Roboto({ weight:["300", "400", "500","900"], subsets: ["latin"] });
 
 export const metadata = {
@@ -12,9 +12,14 @@ export const metadata = {
 export default function RootLayout({ children, session }) {
   return (
     <html lang="en">
-      <SessionProvider session={session}> 
-        <body className={inter.className}>{children}</body>
-      </SessionProvider>
+           
+        <body className={inter.className}>
+        <SessionProvider session={session}> 
+          <Header></Header>
+          {children}
+        </SessionProvider>
+          </body>
+ 
     </html>
   );
 }

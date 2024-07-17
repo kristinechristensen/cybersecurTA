@@ -1,6 +1,4 @@
-input[type=text], input[type=password] {
-  border: solid #333 2px;
-}
+
 .main {
   display: flex;
   flex-direction: column;

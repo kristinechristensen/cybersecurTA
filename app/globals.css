@@ -57,6 +57,11 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+  input[type="text"], input[type="password"] {
+    border:solid 2px #333;
+  }
+
+
 }
 
 @layer base {
@@ -66,4 +71,5 @@
   body {
     @apply bg-background text-foreground;
   }
+
 }
