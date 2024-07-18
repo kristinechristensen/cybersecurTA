@@ -27,12 +27,9 @@ export default function Home() {
           height={228}
           priority
         />
-      </div>
-      <div className={styles.center}>
-      <p className={styles.title1}>Coming Summer 2024!!  See You Soon!</p>
-      </div>
-
-      
+        <br />
+        <p className={styles.title1}>Coming Summer 2024!!  See You Soon!</p>
+      </div>      
     </main>
   );
 }
