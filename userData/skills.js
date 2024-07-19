@@ -1,4 +1,4 @@
-const cybersecuritySkills = [
+const csSkills = [
     "Access Control Management",
     "Application Security Testing",
     "Cloud Security Management",
@@ -20,3 +20,5 @@ const cybersecuritySkills = [
     "Security Information and Event Management (SIEM)",
     "Threat Hunting and Intelligence"
 ];
+
+export default csSkills;

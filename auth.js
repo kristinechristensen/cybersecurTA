@@ -56,13 +56,14 @@ export const {handlers, signIn, signOut, auth} = NextAuth({
                 token.name = user.firstName;
                 console.log("firstname");
                 token.userType = user.userType; 
+                token.id = user._id; //use logging in with Gcredentials
               } catch (error) {
                 throw new Error(error);  //read in the terminal - troubleshooting 
               }
             }else if(user){  //these values are coming from the api end point - sending the values to the token. 
               token.name = user.firstName;
               token.email = user.email;
-              token.id = user._id;
+              token.id = user._id;//type email and password credentials login. 
               token.userType = user.userType; 
               token.gmail = user.emailG;
             }

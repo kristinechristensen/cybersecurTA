@@ -1,4 +1,4 @@
-const cybersecurityInterests = [
+const csInterests = [
     "Application Security",
     "AI in Cybersecurity",
     "Blockchain Security",
@@ -21,3 +21,4 @@ const cybersecurityInterests = [
     "Security Compliance and Governance",
     "Security Information and Event Management (SIEM)"
 ];
+export default csInterests;

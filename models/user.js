@@ -1,5 +1,6 @@
 //importing functions/objects from mongoose package
-import { Schema, model, models } from "mongoose";
+import { Schema, model, models, SchemaTypes } from "mongoose";
+
 
 const UserSchema = new Schema ({
     email: {
@@ -52,8 +53,8 @@ const UserSchema = new Schema ({
         required:[true, "Please specify your user type"]
     },
     school:{
-        type:Schema.Types.ObjectId, 
-        ref:'School',
+        type:SchemaTypes.ObjectId, 
+        ref:"School",
         required:[true, "Please specify your school"]
     },
     pos:{
@@ -64,7 +65,7 @@ const UserSchema = new Schema ({
         type:String, 
       //  required:[true, "Level of Education Required"]
     },
-    cert:{
+    certs:{
         type:[String], 
        // required:[true, "Certifications Required"]
     }, 

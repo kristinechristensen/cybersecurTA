@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { InviteForm } from "@/components/inviteForm";
 import { signIn, useSession } from "next-auth/react";
+import UpdateUser from "@/components/updateProfile";
 // import { signOut } from "next-auth/react";
 
 export default function Home() {
@@ -29,6 +30,8 @@ export default function Home() {
         />
         <br />
         <p className={styles.title1}>Coming Summer 2024!!  See You Soon!</p>
+      <UpdateUser />
+
       </div>      
     </main>
   );

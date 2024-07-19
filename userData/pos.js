@@ -1,4 +1,4 @@
-const cybersecurityProgramsOfStudy = [
+const csPOS = [
     "Cloud Security",
     "Computer Science",
     "Cyber Operations",
@@ -12,3 +12,4 @@ const cybersecurityProgramsOfStudy = [
     "Network Security and Administration",
     "Penetration Testing and Ethical Hacking"
 ];
+export default csPOS;
