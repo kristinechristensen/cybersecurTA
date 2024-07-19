@@ -5,6 +5,8 @@ import styles from "./page.module.css";
 import { InviteForm } from "@/components/inviteForm";
 import { signIn, useSession } from "next-auth/react";
 import UpdateUser from "@/components/updateProfile";
+import ManageSchool from "@/components/manageSchools";
+
 // import { signOut } from "next-auth/react";
 
 export default function Home() {
@@ -13,7 +15,7 @@ export default function Home() {
 
 
   return (
-    <main className={styles.main}>
+    <div className={styles.main}>
     {session?.user?.email} {/* testing the session */}
     {session?.user ? (<button className={styles.button}>Sign Out</button> ): (<Link href="/api/auth/signin"><button className={styles.button} onClick={signIn}>Sign In</button></Link> )} 
     <h2> Create an Invite Link to Join</h2>
@@ -32,7 +34,11 @@ export default function Home() {
         <p className={styles.title1}>Coming Summer 2024!!  See You Soon!</p>
       <UpdateUser />
 
+      <div>
+
+      <ManageSchool/>
+      </div>
       </div>      
-    </main>
+    </div>
   );
 }

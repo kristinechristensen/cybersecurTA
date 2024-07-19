@@ -12,9 +12,11 @@
   font-size:2em;
   font-weight:bold;
   color:#333;
-  display:block;
-  clear:both;
+  display:block;  
+  
 }
+
+
 .center {
   display: flex;
   justify-content: center;

@@ -2,18 +2,20 @@
 import { useState } from "react"; 
 import { useEffect } from "react";
 import { useTransition } from "react";
-//updateSchool --import from actions
+import School from "@/models/school";
+import { getSchool, updateSchool, insertSchool } from "@/actions/manageSchools";
 
 
 
 // 3 actions get school, update, and insert
 //create a function to get School Information 
-const UpdateSchool =({update=false, id})=>{
+const ManageSchool =({update=false, id})=>{
 
     {/* Display Basic School Info */}
     const [schoolName, setSchoolName] = useState("");
     const [schoolsAddress, setSchoolsAddress] = useState("");
     const [schoolCity, setSchoolCity] = useState("");
+    const [schoolState, setSchoolState] = useState("");
     const [schoolZip, setSchoolZip] = useState("");
     const [schoolPhoto, setSchoolPhoto] = useState("");
     const [schoolDesc, setSchoolDesc] = useState(""); 
@@ -22,9 +24,9 @@ const UpdateSchool =({update=false, id})=>{
     const[error, setError] = useState("");
 
     useEffect(() => {
+      if(!update) return;  //false value for update - will not need to do jump out of the useEffect
         startTransition(() => {
-         getUser().then((data)=> {
-                
+         getSchool(id).then((data)=> {
                 data = JSON.parse(data);
                 
                 if (data.error) {
@@ -39,7 +41,6 @@ const UpdateSchool =({update=false, id})=>{
                  setSchoolDesc(school.desc);   
                 }
             })
-
 })
 }, []
 )
@@ -50,8 +51,8 @@ const formSubmit = (e)=>{
     setSuccess(" ")
     
     startTransition(()=>{
-        //create a server function or API end-point
-        updateSchool(schoolName, schoolsAddress, schoolCity, schoolZip, schoolPhoto, schoolDesc).then(value =>{
+        if(update){
+           updateSchool(id, schoolName, schoolsAddress, schoolCity, schoolState, schoolZip, schoolPhoto, schoolDesc).then(value =>{
             if(value.success) {
                 setSuccess(value.success);   
             }
@@ -59,6 +60,17 @@ const formSubmit = (e)=>{
                 setError(value.error);
             }
         })
+      }
+      else {
+        insertSchool(schoolName, schoolsAddress, schoolCity, schoolState,schoolZip, schoolPhoto, schoolDesc).then(value =>{
+          if(value.success) {
+              setSuccess(value.success);   
+          }
+          else {
+              setError(value.error);
+          }
+      })
+      }
         
     });
 }
@@ -79,6 +91,10 @@ const formSubmit = (e)=>{
         <input type="text" value={schoolCity} onChange={(e) => setSchoolCity(e.target.value)} />
       </div>
       <div>
+        <label>State:</label>
+        <input type="text" value={schoolState} onChange={(e) => setSchoolState(e.target.value)} />
+      </div>
+      <div>
         <label>Zip Code:</label>
         <input type="text" value={schoolZip} onChange={(e) => setSchoolZip(e.target.value)} />
       </div>
@@ -91,11 +107,13 @@ const formSubmit = (e)=>{
         <textarea value={schoolDesc} onChange={(e) => setSchoolDesc(e.target.value)} />
       </div>
       <button type="submit">Submit</button>
+      {success}{error}
+    
     </form>
     )   
 }
 
-export default UpdateSchool;
+export default ManageSchool;
 
 
     

@@ -14,6 +14,9 @@ const SchoolSchema = new Schema ({
         type:String, 
         required:[true, "City Required"]
     },
+    state:{
+        type:String,
+        },
     zip:{
         type:String, 
         required:[true, "Zip Code Required"]
@@ -28,6 +31,6 @@ const SchoolSchema = new Schema ({
 });
 
 //checks to see if the model User exists, if it doesn't create one, otherwise use the User model
-const School = models.School || model("School", SchoolSchema);
+const School = models?.School || model("School", SchoolSchema, "School");
 
 export default School;
