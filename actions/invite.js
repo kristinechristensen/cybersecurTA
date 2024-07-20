@@ -14,7 +14,7 @@ export const createInvite = async ({email, userType}) => {
     
     const session = await auth(); //get session data from user
 //creating an invite
-    if(session?.user?.userType == 1 || session?.user?.userTypes == 0)  {    // 0 = admin; 1 = faculty; 2 = student
+    if(session?.user?.userType == 1 || session?.user?.userType == 0)  {    // 0 = admin; 1 = faculty; 2 = student
       
         //check to make sure user isn't in the system before issuing a token. 
         try {

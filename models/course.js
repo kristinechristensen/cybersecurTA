@@ -1,11 +1,17 @@
 import { Schema, model, models } from "mongoose";
 
+
 const CourseSchema = new Schema ({
     userId:{    
         type:Schema.Types.ObjectId, 
         ref:'User', 
         required:[true, "User ID is required"]        
     },
+    schoolId:{
+        type:Schema.Types.ObjectId,
+        ref:'School', 
+        required:[true, "School required]"]
+    }, 
     title:{
         type:String, 
         required:[true, "Course Title Required"]
@@ -14,7 +20,7 @@ const CourseSchema = new Schema ({
         type:String, 
         required:[true, "Course Record Number is required"]
     },
-    des:{
+    desc:{
         type:String, 
         required:[true, "Course Description is required"]
     },

@@ -2,7 +2,6 @@
 import { useState } from "react"; 
 import { useEffect } from "react";
 import { useTransition } from "react";
-import School from "@/models/school";
 import { getSchool, updateSchool, insertSchool } from "@/actions/manageSchools";
 
 
@@ -33,9 +32,11 @@ const ManageSchool =({update=false, id})=>{
                     setError(data.error)
                 }
                 else {
+                 const school = data.school;
                  setSchoolName(school.name);
                  setSchoolsAddress(school.sAddress);
                  setSchoolCity(school.city);
+                 setSchoolState(school.state)
                  setSchoolZip(school.zip);
                  setSchoolPhoto(school.photo);
                  setSchoolDesc(school.desc);   

@@ -6,6 +6,8 @@ import { InviteForm } from "@/components/inviteForm";
 import { signIn, useSession } from "next-auth/react";
 import UpdateUser from "@/components/updateProfile";
 import ManageSchool from "@/components/manageSchools";
+import ManageCourse from "@/components/manageCourses";
+
 
 // import { signOut } from "next-auth/react";
 
@@ -36,7 +38,10 @@ export default function Home() {
 
       <div>
 
-      <ManageSchool/>
+      {/* <ManageSchool update={true} id="6670c4b06acf4ff7f0bc1855" /> */}
+
+      {/* <ManageCourse /> */}
+
       </div>
       </div>      
     </div>
