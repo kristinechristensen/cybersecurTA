@@ -31,7 +31,7 @@ return (
       <p>{school.description}</p>
     </CardContent>
     <CardFooter>
-      <Button> Learn More </Button>
+     <Link href={`/schools/${school._id}`}> <Button>Learn More </Button></Link>
     </CardFooter>
   </Card>
   ))}
