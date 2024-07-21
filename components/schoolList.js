@@ -21,7 +21,7 @@ const SchoolList = () => {
     return (
 
         <div>
-            <h1>Rendering</h1>
+            
             <SchoolCards schoolList={schools} />
 
         </div>

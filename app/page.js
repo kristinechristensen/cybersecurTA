@@ -8,6 +8,7 @@ import UpdateUser from "@/components/updateProfile";
 import ManageSchool from "@/components/manageSchools";
 import ManageCourse from "@/components/manageCourses";
 import SchoolList from "@/components/schoolList";
+import { TempUserList } from "@/components/userList";
 
 // import { signOut } from "next-auth/react";
 
@@ -42,7 +43,9 @@ export default function Home() {
      
       </div>
         <SchoolList />
-      </div>      
+   
+        <TempUserList />
+      </div>
     </div>
   );
 }
