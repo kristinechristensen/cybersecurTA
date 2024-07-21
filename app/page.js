@@ -42,9 +42,9 @@ export default function Home() {
       <ManageCourse /> 
      
       </div>
-        <SchoolList />
+        {/* <SchoolList />
    
-        <TempUserList />
+        <TempUserList /> */}
       </div>
     </div>
   );
