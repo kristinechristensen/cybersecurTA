@@ -2,6 +2,7 @@
 import { FaSkull } from "react-icons/fa";
 //update data is a call back function - updateCerts, updateSkills, updateInterests
 // hookFunction - call back - setUpdateCerts, setUpdateSkills, setUpdateInterests
+//populate the form element. 
 
 const ListMaker = ({data, updateData, hookFunction})=>{
 

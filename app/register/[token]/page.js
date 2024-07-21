@@ -26,7 +26,9 @@ import { useRouter } from "next/navigation";
     //check for a valid token
     useEffect(() => {
         startTransition(() => {  //parse the token and get school list from db 
+
             getSchools().then((data) => {
+                data = JSON.parse(data); 
                 setSchoolList([...data]);
                 setSchool(data[0]._id)
             });

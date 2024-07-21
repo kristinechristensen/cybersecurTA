@@ -1,6 +1,8 @@
 import { FiLock } from 'react-icons/fi';
 import { IoIosLock } from "react-icons/io";
 import { NavLinks } from '@/components/links';
+import Link from 'next/link';
+
 
 export const Header = () => {
   return (
@@ -8,7 +10,7 @@ export const Header = () => {
       <div className='flex gap-3 justify-center items-center'>
         <FiLock className="h-6 w-6 text-red-600" />
         <IoIosLock className="h-6 w-6 text-red-600" />
-        <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-50 dark:text-white">CyberSecurTA</span>
+        <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-50 dark:text-white"><Link href="/">CyberSecurTA</Link></span>
       </div>
       <NavLinks />
     </header>

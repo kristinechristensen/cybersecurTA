@@ -18,8 +18,10 @@ export default function RootLayout({ children, session }) {
           <Header></Header>
           {children}
         </SessionProvider>
-          </body>
- 
+        <footer>
+          <p>&#169; 2024 - </p>
+        </footer>
+        </body>
     </html>
   );
 }

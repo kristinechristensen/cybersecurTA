@@ -7,7 +7,7 @@ import { signIn, useSession } from "next-auth/react";
 import UpdateUser from "@/components/updateProfile";
 import ManageSchool from "@/components/manageSchools";
 import ManageCourse from "@/components/manageCourses";
-
+import SchoolList from "@/components/schoolList";
 
 // import { signOut } from "next-auth/react";
 
@@ -32,17 +32,16 @@ export default function Home() {
           height={228}
           priority
         />
-        <br />
-        <p className={styles.title1}>Coming Summer 2024!!  See You Soon!</p>
-      <UpdateUser />
+        
+           {/* <UpdateUser /> */}
 
       <div>
-
       {/* <ManageSchool update={true} id="6670c4b06acf4ff7f0bc1855" /> */}
-
-      {/* <ManageCourse /> */}
-
+      <ManageSchool />
+      <ManageCourse /> 
+     
       </div>
+        <SchoolList />
       </div>      
     </div>
   );

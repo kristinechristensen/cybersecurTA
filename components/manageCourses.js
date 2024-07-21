@@ -38,7 +38,9 @@ const ManageCourse = ({ update = false, id }) => {
          setCoursenTA(course.nTA);        
         }})
       }
+      
         getSchools().then((data) => {
+        data = JSON.parse(data);  
         setSchoolList([...data]);
         setSchool(data[0]._id)
       });

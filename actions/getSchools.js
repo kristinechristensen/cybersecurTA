@@ -8,7 +8,7 @@ export const getSchools = async()=>{
     try {
         await connectToDB();
         const schools = await School.find({}).sort({name:"asc"}); //bring back all schools alphabetically. 
-        return schools;
+        return JSON.stringify(schools);
     }
     catch(error) {
         console.log(error.message)
