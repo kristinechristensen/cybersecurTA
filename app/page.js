@@ -44,7 +44,7 @@ export default function Home() {
       </div>
         {/* <SchoolList />*/}
    
-        <TempUserList /> 
+        {/* <TempUserList />  */}
       </div>
     </div>
   );
