@@ -3,6 +3,7 @@ import { useEffect, useState, useTransition } from "react"
 import { getSchool } from "@/actions/manageSchools"
 import Image from "next/image"
 import Link from "next/link"
+import CoursesList from "@/components/courseList"
 
 const individualSchool = ({params})=> {
 
@@ -34,6 +35,10 @@ return (
 <h1>Test</h1>
 {schoolData?.name}
 {schoolData?.desc}
+<h2> Courses Offered at this School</h2>
+<CoursesList schoolId={params.id}/>
+
+
 
 <Link href="/schools"> Back to School Listing </Link>
 

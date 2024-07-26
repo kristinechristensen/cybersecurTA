@@ -13,9 +13,9 @@ const Links = ()=>{
   const path = usePathname();
   return(
     <>
-      <Link href="/" className={cn("hover:text-indigo-300", (path=='/'?"text-white":""))}>Home</Link>
-      <Link href="/schools" className={cn("hover:text-red-600", (path=='/schools'?"text-indigo-400":"text-red-600"))}>Schools</Link>
-      <Link href="/users" className={cn("hover:text-red-600", (path=='/users'?"text-indigo-400":""))}>Users</Link>
+      <Link href="/" className={cn("hover:text-indigo-300", (path=='/'?"text-indigo-400":"text-white"))}>Home</Link>
+      <Link href="/schools" className={cn("hover:text-red-600", (path.includes('/schools')?"text-indigo-400":"text-white"))}>Schools</Link>
+      <Link href="/users" className={cn("hover:text-red-600", (path.includes('/users')?"text-indigo-400":"text-white"))}>Users</Link>
       <Button size="sm" className="px-3" onClick={signOut}><FiLogOut className="text-red-600 w-4 h-4 text-bold"/></Button>
     </>
   )

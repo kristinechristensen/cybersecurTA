@@ -28,7 +28,7 @@ return (
       <p>{course.schoolId.description}</p>
     </CardContent>
     <CardFooter>
-     <Link href={`/course/${course._id}`}> <Button>Learn More </Button></Link>
+     <Link href={`/courses/${course._id}`}> <Button>Learn More </Button></Link>
     </CardFooter>
   </Card>
   ))}

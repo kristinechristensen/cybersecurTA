@@ -10,10 +10,12 @@ export const getCourse = async(id) => {
    
     try {
         await connectToDB();
-        const course = await Course.findById(id);
+        const course = await Course.findById(id).populate("userId").populate("schoolId");
+        console.log(course);
         return JSON.stringify(course)
     }
     catch(error) {
+        console.log(error)
         return {error:"Course Not Found"}        
     }
 }

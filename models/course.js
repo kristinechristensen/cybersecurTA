@@ -18,7 +18,8 @@ const CourseSchema = new Schema ({
     },
     crn:{
         type:String, 
-        required:[true, "Course Record Number is required"]
+        required:[true, "Course Record Number is required"], 
+        
     },
     desc:{
         type:String, 
