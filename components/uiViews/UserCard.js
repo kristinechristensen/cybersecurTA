@@ -40,7 +40,7 @@ return (
       {/* <CardDescription>{`State: ${user.sAddress}`}</CardDescription> */}
     </CardHeader>
     <CardContent>
-    <Image src={getImg(user.pos)} alt={user.name} width={300} height={300}/>
+    <Image src={getImg(user.pos)} alt={user.firstName + " " + user.lastName} width={300} height={300}/>
       {/* <p>Skills: </p>  <-- save for 
       <ul>
         {user.skills.map((elem)=><li key={elem}>{elem}</li>)}

@@ -8,7 +8,7 @@ const csSkills = [
     "Digital Forensics and Incident Response",
     "Ethical Hacking",
     "Firewalls and Intrusion Detection Systems",
-    "Identity and Access Management (IAM)",
+    "Identity and Access Management",
     "Incident Handling",
     "Knowledge of Cybersecurity Frameworks (NIST, ISO 27001)",
     "Malware Analysis and Reverse Engineering",
