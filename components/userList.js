@@ -1,8 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import { getUsers } from "@/actions/getUserList"
-import { UserCard } from "./uiViews/UserCard"
-
+import { UserCard } from "./uiViews/userCard"
 
 export const TempUserList = ()=>{
     const [users, setUsers] = useState([]);

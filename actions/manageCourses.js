@@ -21,11 +21,11 @@ export const getCourse = async(id) => {
 //get all of the courses by school and add users that created the courses
 export const getCourses = async(schoolid) => {
 
-    if (!id) return {error:"What school are you looking for?"}  
+    if (!schoolid) return {error:"What school are you looking for?"}  
    
     try {
         await connectToDB();
-        const course = await Course.find({schoolId:schoolid}).populate("userId"); //populate = join 
+        const course = await Course.find({schoolId:schoolid}).populate("userId").populate("schoolId"); //populate = join 
         return JSON.stringify(course)
     }
     catch(error) {

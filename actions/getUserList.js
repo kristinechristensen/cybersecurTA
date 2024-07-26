@@ -2,24 +2,28 @@
 import connectToDB from "@/utils/database"
 import User from "@/models/user"
 import {auth} from "@/auth"
+import School from "@/models/school"
+
 
 
 
 //get individual users 
 export const getUser = async(id) => {
     const session = await auth();
-    if(!session?.user) return {error:"You have to be logged in to se a user profile"};
+    if(!session?.user) return JSON.stringify({error:"You have to be logged in to se a user profile"});
 
 
-    if (!id) return {error:"What User are you looking for?"}  
+    if (!id) return JSON.stringify({error:"What User are you looking for?"})  
    
     try {
         await connectToDB();
         const user = await User.findById(id);
-        return JSON.stringify(user)
+        const school = await School.findById(user.school);
+        return JSON.stringify({user, school})
     }
     catch(error) {
-        return {error:"Course Not Found"}        
+        console.log(error)
+        return JSON.stringify({error:"User Not Found"})        
     }
 }
 

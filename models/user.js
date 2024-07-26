@@ -1,5 +1,5 @@
 //importing functions/objects from mongoose package
-import { Schema, model, models, SchemaTypes } from "mongoose";
+import { Schema, model, models } from "mongoose";
 
 
 const UserSchema = new Schema ({
@@ -53,7 +53,7 @@ const UserSchema = new Schema ({
         required:[true, "Please specify your user type"]
     },
     school:{
-        type:SchemaTypes.ObjectId, 
+        type:Schema.Types.ObjectId,
         ref:"School",
         required:[true, "Please specify your school"]
     },

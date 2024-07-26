@@ -9,6 +9,7 @@ import ManageSchool from "@/components/manageSchools";
 import ManageCourse from "@/components/manageCourses";
 import SchoolList from "@/components/schoolList";
 import { TempUserList } from "@/components/userList";
+import CoursesList from "@/components/courseList";
 
 // import { signOut } from "next-auth/react";
 
@@ -33,6 +34,7 @@ export default function Home() {
           height={228}
           priority
         />
+        <CoursesList schoolId={"6670c4b06acf4ff7f0bc1855"}/>
         
            {/* <UpdateUser /> */}
 
