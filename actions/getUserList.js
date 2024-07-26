@@ -30,14 +30,15 @@ export const getUser = async(id) => {
 // retrieve all users
 export const getUsers = async() => {
     const session = await auth();
-    if(!session?.user) return {error: "You have to be logged in to see a listing of our users"}
+    if(!session?.user) return JSON.stringify({error: "You have to be logged in to see a listing of our users"})
     try {
         await connectToDB();
         const users = await User.find({}).populate('school'); 
         return JSON.stringify(users)
     }
     catch(error) {
-        return {error:"Users Cannot Be Retrieved"}        
+        console.log(error);
+        return JSON.stringify({error:"Users Cannot Be Retrieved"})        
     }
 }
 

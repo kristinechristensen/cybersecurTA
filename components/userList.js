@@ -8,6 +8,7 @@ export const TempUserList = ()=>{
     const getData = async()=>{
         const values = await getUsers();
         const resp = JSON.parse(values);
+        console.log(resp)
         setUsers([...resp]);
     }
     useEffect(() => {
