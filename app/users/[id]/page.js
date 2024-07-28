@@ -59,9 +59,9 @@ const getImg =(pos)=>{
 return (
 
 <div className="flex flex-wrap">
-<PageHeader title={user.firstName+" "+user.lastName}/>
+<PageHeader title={user?.firstName+" "+user?.lastName}/>
 <div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-center items-center h-80"> 
-<Image src={getImg(user.pos)} alt={user.firstName} width={300} height={300} className="rounded"/> 
+<Image src={getImg(user?.pos)} alt={user?.firstName} width={300} height={300} className="rounded"/> 
 </div>
 
 <div className="md:w-1/2 sm:w-full p-x-24 flex flex-column items-center h-80 sm:justify-center md:justify-start">

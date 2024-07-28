@@ -8,17 +8,22 @@ import Link from "next/link";
 import { useState } from "react";
 import { cn } from "@/lib/utils"; 
 import { FiLogOut } from "react-icons/fi";
-
+import { useRouter } from "next/navigation";
 
 
 const Links = ()=>{
   const path = usePathname();
+  const router = useRouter();
+  const endSession = ()=>{
+    signOut(); 
+    router.push('/');
+  }
   return(
     <>
       <Link href="/" className={cn("font-bold hover:text-red-600 mx-2", (path=='/'?"text-red-700":"text-blue-950"))}>Home</Link>
       <Link href="/schools" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/schools')?"text-red-700":"text-blue-950"))}>Schools</Link>
       <Link href="/users" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/users')?"text-red-700":"text-blue-950"))}>Users</Link>
-      <Button size="sm" variant="link" className="px-3" onClick={signOut}><FiLogOut className="text-red-600 w-4 h-4 text-bold"/></Button>
+      <Button size="sm" variant="link" className="px-3" onClick={endSession}><FiLogOut className="text-red-600 w-4 h-4 text-bold"/></Button>
     </>
   )
 }
