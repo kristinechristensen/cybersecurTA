@@ -22,12 +22,16 @@ import "./embla.css";
 import EmblaCarousel from "@/components/slider";
 
 
+
+
 export default function Home() {
 
   // const {data: session} = useSession();
   const OPTIONS = { loop: true }
   const SLIDE_COUNT = 4
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+  const {data:session} = useSession();
+
 
   return (
     <div className={styles.main}>
@@ -36,7 +40,10 @@ export default function Home() {
 
     <div className="flex flex-wrap w-full p-10">
       <div className="md:w-1/2 sm:w-full items-center justify-center flex"> GRAPHIC Here</div>
-      <div className="md:w-1/2 sm:w-full"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the rele</div>
+      <div className="md:w-1/2 sm:w-full"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the rele
+      {session?.user && (<InviteForm />)}
+      </div>
+
     </div>
 
 
