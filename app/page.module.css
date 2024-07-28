@@ -1,10 +1,15 @@
 
+.body1 {
+  min-height: 100vh;
+  display:flex;
+  flex-direction: column;
+}
 .main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+ /* padding: 6rem;*/
 }
 
 .title1 {
@@ -16,6 +21,9 @@
   
 }
 
+.nava {
+  padding-right:0.5em;
+}
 
 .center {
   display: flex;
@@ -26,8 +34,21 @@
 }
 
 .logo {
-  position: relative;
+  /* position: relative; */
+  max-width: 100%;
+  height:auto;
+
 }
+
+.footer {
+  background-color: #121c46;
+  color:white;
+  margin-top:auto;
+  height:10rem;
+  padding:2rem;
+ }
+
+
 
 /* Mobile */
 @media (max-width: 700px) {

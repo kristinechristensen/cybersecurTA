@@ -6,7 +6,7 @@ import {auth} from "@/auth"
 //get individual course 
 export const getCourse = async(id) => {
 
-    if (!id) return {error:"What Course are you looking for?"}  
+    if (!id) return JSON.stringify({error:"What Course are you looking for?"})  
    
     try {
         await connectToDB();
@@ -16,14 +16,14 @@ export const getCourse = async(id) => {
     }
     catch(error) {
         console.log(error)
-        return {error:"Course Not Found"}        
+        return JSON.stringify({error:"Course Not Found"})       
     }
 }
 
 //get all of the courses by school and add users that created the courses
 export const getCourses = async(schoolid) => {
 
-    if (!schoolid) return {error:"What school are you looking for?"}  
+    if (!schoolid) return JSON.stringify({error:"What school are you looking for?"})  
    
     try {
         await connectToDB();
@@ -31,7 +31,7 @@ export const getCourses = async(schoolid) => {
         return JSON.stringify(course)
     }
     catch(error) {
-        return {error:"Courses Cannot Be Retrieved"}        
+        return JSON.stringify({error:"Courses Cannot Be Retrieved"})       
     }
 }
 
@@ -58,7 +58,7 @@ export const insertCourse = async(title, crn, desc,level, nTA, schoolId) => {
         } 
         catch (error) {
             console.log(error)
-            return{error:"Course not added, make sure to include all properties"}
+            return {error:"Course not added, make sure to include all properties"}
         }
     }
     else {

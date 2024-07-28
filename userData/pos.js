@@ -8,7 +8,6 @@ const csPOS = [
     "Cybersecurity Management",
     "Cybersecurity Policy and Governance",
     "Digital Forensics and Cyber Investigations",
-    "Information Security and Assurance",
     "Network Security and Administration",
     "Penetration Testing and Ethical Hacking"
 ];

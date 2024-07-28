@@ -3,6 +3,7 @@ import { useEffect} from "react"
 import { useState } from "react"
 import { getSchools } from "@/actions/getSchools"
 import { SchoolCards } from "./uiViews/schoolCards"
+import PageHeader from "./pageHeader"
 //show school listing
 
 const SchoolList = () => {
@@ -21,7 +22,7 @@ const SchoolList = () => {
     return (
 
         <div>
-            
+            <PageHeader title="Participating Schools"/>
             <SchoolCards schoolList={schools} />
 
         </div>

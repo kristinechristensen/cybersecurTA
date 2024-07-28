@@ -14,13 +14,12 @@ export const CourseCards = ({courseList}) => {
 
 return (
   
-<div>
-<h1>Course List</h1>
+<div className="flex flex-wrap p-10 justify-evenly items-center gap-8">
   {courseList.map((course,index)=> (
-    <Card key={index}>
+    <Card key={index} className="md:w-1/4 sm:w-full">
     <CardHeader>
-      <CardTitle>{course.title} | {course.crn}</CardTitle>
-      <CardDescription>{course.schoolId.name}</CardDescription>
+      <CardTitle  className="line-clamp-1">{course.title} | {course.crn}</CardTitle>
+      <CardDescription  className="line-clamp-1">{course.schoolId.name}</CardDescription>
       {/* <CardDescription>{`State: ${school.sAddress}`}</CardDescription> */}
     </CardHeader>
     <CardContent> {/* place holder content  */}

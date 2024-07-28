@@ -4,6 +4,8 @@ import { getSchool } from "@/actions/manageSchools"
 import Image from "next/image"
 import Link from "next/link"
 import CoursesList from "@/components/courseList"
+import PageHeader from "@/components/pageHeader"
+import { Button } from "@/components/ui/button"
 
 const individualSchool = ({params})=> {
 
@@ -30,17 +32,26 @@ if(params?.id) getData();
 
 return (
 <div>
- <h1>{schoolData?.name}</h1>
-<Image src={schoolData?.photo} alt={schoolData?.name} width={300} height={300}/> 
-<h1>Test</h1>
-{schoolData?.name}
-{schoolData?.desc}
-<h2> Courses Offered at this School</h2>
-<CoursesList schoolId={params.id}/>
+ <PageHeader title={schoolData?.name} />
+
+ 
+ <div className="flex flex-wrap">
+     <div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-center items-center h-80">
+         <Image src={schoolData?.photo} alt={schoolData?.name} width={300} height={300} className="rounded"/> 
+     </div>
+     <div className="md:w-1/2 sm:w-full p-x-24 flex flex-column items-center h-80">
+         <div>
+             <p>{schoolData?.desc}</p>
+             <Link href="/schools"> <Button variant="custom" >Back to School Listing </Button> </Link>
+         </div>
+     </div>
+    <h2 className="w-full text-center text-2xl text-bold p-8 bg-cyan-800 text-white"> Courses Offered at this School</h2>
+     <CoursesList schoolId={params.id}/>
+ </div>
+{/* Consider adding student/faculty lists of each school */}
 
 
 
-<Link href="/schools"> Back to School Listing </Link>
 
 
 </div>

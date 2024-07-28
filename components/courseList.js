@@ -13,7 +13,7 @@ const CoursesList = ({schoolId}) => {
     const getData = async()=>{
         const values = await getCourses(schoolId); //testing
         const resp = JSON.parse(values);
-        setCourses([...resp]);
+        if(!resp.error) setCourses([...resp]);
     }
     useEffect(() => {
         getData();

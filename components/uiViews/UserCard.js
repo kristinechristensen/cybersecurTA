@@ -13,30 +13,44 @@ export const UserCard = ({userList}) => {
 
 //render the list and use shadcn component - need to add images here
 const getImg =(pos)=>{
-    switch (pos){
-        case "Cybersecurity":
-            return "/pos/cs.png";
-        case "Computer Science":
-            return "/pos/cs.png";
-        case "math":
-        case "":
-            return "" 
-        default:
-            return ""
-        
+  switch (pos){
+      case "Cloud Security": 
+          return  "/pos/cloudsecurity.png";
+      case "Computer Science":
+          return "/pos/computerscience.png";
+      case "Cyber Operations":
+          return "/pos/cs.png";
+      case "Cybersecurity":
+          return "/pos/cybersecurity.png";
+      case "Cybersecurity and Information Assurance":
+          return "/pos/cyberinfoassurance.png";
+      case "Cybersecurity Engineering":
+          return "/pos/cyberengineering.png";
+      case "Cybersecurity Management":
+          return "/pos/cybermanagement.png";
+      case "Cybersecurity Policy and Governance": 
+          return "/pos/cyberpolicy.png";
+      case "Digital Forensics and Cyber Investigations": 
+          return "/pos/digitalforensics.png";
+      case "Network Security and Administration": 
+          return "/pos/networksecurity.png";    
+      case "Penetration Testing and Ethical Hacking":
+          return "/pos/pentesting.png";   
+      default:
+          return "/pos/ask.png"
+      
 
-    }
+  }
 }
 
 return (
   
-<div>
-<h1>User List</h1>
+<div className="flex flex-wrap p-10 justify-evenly items-center gap-y-3">
   {userList.map((user,index)=> (
-    <Card key={index}>
+    <Card key={index} className="md:w-1/4 sm:w-full">
     <CardHeader>
-      <CardTitle>{user.firstName} {user.lastName}</CardTitle>
-      <CardDescription>{user.school.name} |  {user.pos}</CardDescription>
+      <CardTitle className="line-clamp-1">{user.firstName} {user.lastName}</CardTitle>
+      <CardDescription className="line-clamp-1">{user.school.name} |  {user.pos}</CardDescription>
       {/* <CardDescription>{`State: ${user.sAddress}`}</CardDescription> */}
     </CardHeader>
     <CardContent>

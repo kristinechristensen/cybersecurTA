@@ -10,44 +10,38 @@ import ManageCourse from "@/components/manageCourses";
 import SchoolList from "@/components/schoolList";
 import { TempUserList } from "@/components/userList";
 import CoursesList from "@/components/courseList";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import "./embla.css";
+import EmblaCarousel from "@/components/slider";
 
-// import { signOut } from "next-auth/react";
 
 export default function Home() {
-  
-  const {data: session} = useSession();
 
+  // const {data: session} = useSession();
+  const OPTIONS = { loop: true }
+  const SLIDE_COUNT = 4
+  const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
   return (
     <div className={styles.main}>
-    {session?.user?.email} {/* testing the session */}
-    {session?.user ? (<button className={styles.button}>Sign Out</button> ): (<Link href="/api/auth/signin"><button className={styles.button} onClick={signIn}>Sign In</button></Link> )} 
-    <h2> Create an Invite Link to Join</h2>
-    {session?.user && (<InviteForm />)}
+    <EmblaCarousel slides={SLIDES} options={OPTIONS}/>
+    {/* create two column layout */}
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/logo.png"
-          alt="CyberSecurTA"
-          width={283}
-          height={228}
-          priority
-        />
-        <CoursesList schoolId={"6670c4b06acf4ff7f0bc1855"}/>
-        
-           {/* <UpdateUser /> */}
+    <div className="flex flex-wrap w-full p-10">
+      <div className="md:w-1/2 sm:w-full items-center justify-center flex"> GRAPHIC Here</div>
+      <div className="md:w-1/2 sm:w-full"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the rele</div>
+    </div>
 
-      <div>
-      {/* <ManageSchool update={true} id="6670c4b06acf4ff7f0bc1855" /> */}
-      <ManageSchool />
-      <ManageCourse /> 
-     
-      </div>
-        {/* <SchoolList />*/}
-   
-        {/* <TempUserList />  */}
-      </div>
+
+
+
     </div>
   );
 }

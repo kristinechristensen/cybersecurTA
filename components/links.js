@@ -9,14 +9,16 @@ import { useState } from "react";
 import { cn } from "@/lib/utils"; 
 import { FiLogOut } from "react-icons/fi";
 
+
+
 const Links = ()=>{
   const path = usePathname();
   return(
     <>
-      <Link href="/" className={cn("hover:text-indigo-300", (path=='/'?"text-indigo-400":"text-white"))}>Home</Link>
-      <Link href="/schools" className={cn("hover:text-red-600", (path.includes('/schools')?"text-indigo-400":"text-white"))}>Schools</Link>
-      <Link href="/users" className={cn("hover:text-red-600", (path.includes('/users')?"text-indigo-400":"text-white"))}>Users</Link>
-      <Button size="sm" className="px-3" onClick={signOut}><FiLogOut className="text-red-600 w-4 h-4 text-bold"/></Button>
+      <Link href="/" className={cn("font-bold hover:text-red-600 mx-2", (path=='/'?"text-red-700":"text-blue-950"))}>Home</Link>
+      <Link href="/schools" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/schools')?"text-red-700":"text-blue-950"))}>Schools</Link>
+      <Link href="/users" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/users')?"text-red-700":"text-blue-950"))}>Users</Link>
+      <Button size="sm" variant="link" className="px-3" onClick={signOut}><FiLogOut className="text-red-600 w-4 h-4 text-bold"/></Button>
     </>
   )
 }
@@ -26,13 +28,13 @@ export const NavLinks = ()=>{
   const toggleNavbar = ()=>setClosed(!isClosed);
   return(
     <>
-    <nav className="w-1/5 flex justify-end">
+    <nav className="w-1/4 flex justify-end">
       <div className="hidden md:flex w-full justify-between items-center">
         <Links/>
       </div>
       <div className="md:hidden">
         <Button onClick={toggleNavbar}  variant="link">
-          {isClosed?<FiMenu className="h-5 w-5"/>:<FiX className="h-5 w-5"/>}
+          {isClosed?<FiMenu className="h-5 w-5 text-blue-950"/>:<FiX className="h-5 w-5 text-blue-950"/>}
         </Button>
       </div>
     </nav>

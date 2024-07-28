@@ -17,13 +17,12 @@ console.log(schoolList);
 
 return (
   
-<div>
-<h1>Participating Schools</h1>
+<div className="flex flex-wrap p-10 justify-evenly items-center gap-y-3">
   {schoolList.map((school,index)=> (
-    <Card key={index}>
+    <Card key={index} className="md:w-1/4 sm:w-full">
     <CardHeader>
-      <CardTitle>{school.name}</CardTitle>
-      <CardDescription>{school.sAddress}, {school.city}, {school.state}</CardDescription>
+      <CardTitle className="line-clamp-1">{school.name}</CardTitle>
+      <CardDescription className="line-clamp-1">{school.sAddress}, {school.city}, {school.state}</CardDescription>
       {/* <CardDescription>{`State: ${school.sAddress}`}</CardDescription> */}
     </CardHeader>
     <CardContent>
