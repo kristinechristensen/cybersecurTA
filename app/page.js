@@ -45,13 +45,15 @@ export default function Home() {
       alt="Students working together" />
       
       </div>
-      <div className="md:w-1/2 sm:w-full"> Discover CyberSecurTA:
-<h3 className="font-bold">Revolutionizing Cybersecurity Education!</h3>
-<p className="m-t-4">Are you a cybersecurity student looking to gain real-world teaching
+      <div className="md:w-1/2 sm:w-full"> 
+<h3 className="text-5xl font-bold text-gray-900 sm:text-5xl md:text-6xl pb-6"> Discover <span class="bg-clip-text text-blue-900">CyberSecur</span><span class="bg-clip-text text-red-600">TA:</span> 
+</h3>
+  <h3 className="text-4xl font-bold">Revolutionizing Cybersecurity Education!</h3>
+<p className="mb-3 text-gray-500 dark:text-gray-400 pb-6">Are you a cybersecurity student looking to gain real-world teaching
 experience? Or an educator seeking skilled teaching assistants to
 enhance your classroom? CyberSecurTA is your ultimate solution!</p>
-<h3> Participation is Invitation Only</h3>
-<p>Our innovative platform connects passionate cybersecurity
+<h3 className="text-2xl font-bold mb-5 text-red-700"> Participation is Invitation Only</h3>
+<p className="mb-3 text-gray-500 dark:text-gray-400 pb-6 ">Our innovative platform connects passionate cybersecurity
 students with educators in need of knowledgeable TAs, creating a
 seamless match based on skills and availability.</p>
 Together, we are bridging the gap in cybersecurity education,
