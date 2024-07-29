@@ -39,8 +39,23 @@ export default function Home() {
     {/* create two column layout */}
 
     <div className="flex flex-wrap w-full p-10">
-      <div className="md:w-1/2 sm:w-full items-center justify-center flex"> GRAPHIC Here</div>
-      <div className="md:w-1/2 sm:w-full"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the rele
+      <div className="md:w-1/2 sm:w-full items-center justify-center flex">  
+      <Image src="/assets/studentsWorking.png"
+      width="300" height="300"
+      alt="Students working together" />
+      
+      </div>
+      <div className="md:w-1/2 sm:w-full"> Discover CyberSecurTA:
+<h3 className="font-bold">Revolutionizing Cybersecurity Education!</h3>
+<p className="m-t-4">Are you a cybersecurity student looking to gain real-world teaching
+experience? Or an educator seeking skilled teaching assistants to
+enhance your classroom? CyberSecurTA is your ultimate solution!</p>
+<h3> Participation is Invitation Only</h3>
+<p>Our innovative platform connects passionate cybersecurity
+students with educators in need of knowledgeable TAs, creating a
+seamless match based on skills and availability.</p>
+Together, we are bridging the gap in cybersecurity education,
+empowering future leaders, and securing our digital future.
       {session?.user && (<InviteForm />)}
       </div>
 
