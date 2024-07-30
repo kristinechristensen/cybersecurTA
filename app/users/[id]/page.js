@@ -87,7 +87,8 @@ return (
         <h2>Contact</h2>
         {user?.linkedIn && (<Link href={user?.linkedIn}><p>{user?.linkedIn}</p></Link>)}
         <Link href={"mailto:"+user?.email}><p>{user?.email}</p></Link>
-        <Link href="/users"><Button variant="custom">Back to Participants Listing </Button> </Link>
+        <p className="m-4">
+        <Link href="/users"><Button variant="custom">Back to Participants Listing </Button> </Link></p>
     </div>
 </div>
 

@@ -31,7 +31,9 @@ if(params?.id) getData();
 },[params.id]);
 
 return (
-<div>
+
+    
+<div >
  <PageHeader title={schoolData?.name} />
 
  
