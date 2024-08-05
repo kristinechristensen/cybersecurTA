@@ -132,14 +132,9 @@ export const deleteCourse = async(id) => {
 
         try {
             await connectToDB();
-            const course = await Course.findById(id)
-            if(session?.user?.id == course.userId)  {
-            await course.findByIdAndRemove(id); //save course
-            return {success:"The Course Has Been Deleted"}
-            }
-        else {
-            return {error: "This is not your course and you cannot delete it "}
-        }
+            const course = await Course.findByIdAndDelete(id);
+            return {success:"The Course Has Been Deleted"};
+            
         } 
         catch (error) {
             console.log(error)

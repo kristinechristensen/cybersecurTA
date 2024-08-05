@@ -46,7 +46,7 @@ const FacultyCourseList = () => {
 
         <div>
             <PageHeader title="Add or Edit Courses" />
-            <div class="p-10">
+            <div className="p-10">
                 <Link href='/manageCourses/add' style={{float:'right'}}><Button variant="custom">Add Courses</Button></Link>
             </div>
             <CourseCards courseList={courses} showEdit={true} handleDelete={handleDelete}/>

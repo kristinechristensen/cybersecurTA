@@ -56,7 +56,7 @@ export const {handlers, signIn, signOut, auth} = NextAuth({
                 token.name = user.firstName;
                 console.log("firstname");
                 token.userType = user.userType; 
-                token.pos = user.pos; 
+                token.pos = user.pos || undefined; 
                 token.id = user._id; //use logging in with Gcredentials
               } catch (error) {
                 throw new Error(error);  //read in the terminal - troubleshooting 
@@ -67,7 +67,7 @@ export const {handlers, signIn, signOut, auth} = NextAuth({
               token.id = user._id;//type email and password credentials login. 
               token.userType = user.userType; 
               token.gmail = user.emailG;
-              token.pos = user.pos;
+              token.pos = user.pos || undefined;
             }
             return token; //turn user into a token //persistant application
           },
