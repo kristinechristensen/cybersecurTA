@@ -29,13 +29,13 @@ const Links = ()=>{
       <Link href="/users" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/users')?"text-red-700":"text-blue-950"))}>Users</Link>
       <Link href="/profile" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/profile')?"text-red-700":"text-blue-950"))}>Profile</Link>
       {(session?.user?.userType === 1 || session?.user?.userType === 0) && (
-             <Link href="/manageCourses" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/manageCourses')?"text-red-700":"text-blue-950"))}>Manage Courses</Link>
+             <Link href="/manageCourses" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/manageCourses')?"text-red-700":"text-blue-950"))}>Manage Course</Link>
       )}
         {(session?.user?.userType === 0) &&( 
              <Link href="/manageSchools" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/manageSchools')?"text-red-700":"text-blue-950"))}>Manage Schools</Link>
           )}
      
-      
+         
       
       <Button size="sm" variant="link" className="px-3" onClick={endSession}><FiLogOut className="text-red-600 w-4 h-4 text-bold"/></Button>
     </>
