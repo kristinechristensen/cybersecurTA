@@ -9,11 +9,11 @@ import Image from "next/image";
 
 const Profile = () => {
    
-    const {data:session} = useSession();
-    const router = useRouter();
-    if(!(session?.user)){
-        router.push('/');
-      }
+    // const {data:session} = useSession();
+    // const router = useRouter();
+    // if(!(session?.user)){
+    //     router.push('/');
+    //   }
       const getImg =(pos)=>{
         switch (pos){
             case "Cloud Security": 

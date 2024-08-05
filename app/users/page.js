@@ -7,11 +7,11 @@ import { useRouter } from "next/navigation";
 
 
 const showAllUsers = ()=> {
-    const router = useRouter();
-    const {data:session} = useSession();
-      if(!(session?.user)){
-        router.push('/');
-      }
+    // const router = useRouter();
+    // const {data:session} = useSession();
+    //   if(!(session?.user)){
+    //     router.push('/');
+    //   }
     return  <TempUserList />
     
 
