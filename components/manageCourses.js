@@ -4,6 +4,9 @@ import { useEffect } from "react"
 import { useTransition } from "react"
 import { getSchools } from "@/actions/getSchools";
 import { getCourse, insertCourse, updateCourse } from "@/actions/manageCourses";
+import PageHeader from "./pageHeader";
+import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 const ManageCourse = ({ update = false, id }) => {
 
@@ -18,6 +21,7 @@ const ManageCourse = ({ update = false, id }) => {
   const [pending, startTransition] = useTransition();
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const router = useRouter();
 
     useEffect(() => {
     startTransition(() => {  //parse the token and get course list from db 
@@ -49,14 +53,15 @@ const ManageCourse = ({ update = false, id }) => {
 
     const formSubmit = (e) =>{
       e.preventDefault();
-      setError(" ");
-      setSuccess(" ");
+      setError("");
+      setSuccess("");
 
       startTransition(()=>{
         if(update){
            updateCourse(id, courseTitle,courseCRN, courseDesc,courseLevel,coursenTA).then(value =>{
             if(value.success) {
-                setSuccess(value.success);   
+                setSuccess(value.success);
+                router.push('/manageCourses')   
             }
             else {
                 setError(value.error);
@@ -66,7 +71,8 @@ const ManageCourse = ({ update = false, id }) => {
       else {
         insertCourse(courseTitle,courseCRN, courseDesc,courseLevel,coursenTA, school).then(value =>{
           if(value.success) {
-              setSuccess(value.success);   
+              setSuccess(value.success); 
+              router.push('/manageCourses')  
           }
           else {
               setError(value.error);
@@ -82,7 +88,12 @@ const ManageCourse = ({ update = false, id }) => {
 
 
   return (
-    <form onSubmit={formSubmit}>
+    <div>
+      <PageHeader title={`Edit Course: ${courseTitle}`} />
+
+    <div className="flex flex-wrap mt-9 w-full">
+     <div className="w-full px-24 flex flex-col justify-start items-center">
+    <form onSubmit={formSubmit} style={{flexDirection:'column'}}>
       <div>
         <label>Course Title:</label>
         <input type="text" value={courseTitle} onChange={(e) => setCourseTitle(e.target.value)} />
@@ -111,10 +122,21 @@ const ManageCourse = ({ update = false, id }) => {
           ))}
         </select>
       </div>
-      {success}{error}
-      <button type="submit">Submit</button>
+      {error && (
+          <div className="bg-rose-500/15 p-3 rounded-md flex items-center justify-between gap-x-2 text-sm text-rose-500 w-full">
+            <p className="">{error}</p>
+          </div>
+        )}
+        {success && (
+          <div className="bg-emerald-500/15 p-3 rounded-md flex items-center justify-between gap-x-2 text-sm text-emerald-500 w-full">
+            <p className="">{success}</p>
+        </div>
+        )}
+      <Button type="submit" variant="custom" className="w-full" disabled={pending}>Submit</Button>
     </form>
-
+    </div>
+    </div>
+    </div>      
   )
 
 

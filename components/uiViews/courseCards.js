@@ -4,13 +4,11 @@ import {Card,CardContent,  CardDescription,
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
-
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "../ui/button"
 
-export const CourseCards = ({courseList}) => {
-
+export const CourseCards = ({courseList, showEdit, handleDelete}) => {
 
 return (
   
@@ -23,11 +21,13 @@ return (
       {/* <CardDescription>{`State: ${school.sAddress}`}</CardDescription> */}
     </CardHeader>
     <CardContent> {/* place holder content  */}
-      <Image src={course.schoolId.photo} alt={course.schoolId.name} width={300} height={300}/>
+      <Image src={course.schoolId.photo} alt={course.schoolId.name} width={300} height={300} className="w-full"/>
       <p>{course.schoolId.description}</p>
     </CardContent>
-    <CardFooter>
-     <Link href={`/courses/${course._id}`}> <Button>Learn More </Button></Link>
+    <CardFooter className="flex flex-col gap-5">
+    <Link className='w-full'  href={`/courses/${course._id}`}> <Button variant="custom" className='w-full'>Learn More </Button></Link>
+    { showEdit && (<Link  className='w-full' href={`/manageCourses/${course._id}`}> <Button variant="lightcustom" className='w-full'>Edit Course</Button></Link>)}
+    { handleDelete && ( <Button variant="destructive" className='w-full' onClick={()=>{handleDelete(course._id)}}>Delete Course</Button>)}
     </CardFooter>
   </Card>
   ))}

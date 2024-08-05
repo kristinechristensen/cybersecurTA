@@ -1,5 +1,7 @@
 "use client"
 import { useEffect, useState, useTransition } from "react"
+import { useSession} from "next-auth/react"
+import { useRouter } from "next/navigation"
 import { getSchool } from "@/actions/manageSchools"
 import Image from "next/image"
 import Link from "next/link"
@@ -12,45 +14,43 @@ const individualSchool = ({params})=> {
 const [schoolData, setSchoolData] = useState({});
 const [pending, startTransition] = useTransition();
 
+const {data:session} = useSession();
+const router = useRouter();
 useEffect(()=> {
-
+    if(!(session?.user)){
+        router.push('/');
+      }
     const getData = async ()=> {
         const data = await getSchool(params.id);
         const parseSchool = JSON.parse(data);
         setSchoolData(parseSchool.school)
     }
-// startTransition(()=>{
-//     getSchool(params.id).then((data)=>{
-//         data = JSON.parse(data); 
-//         // console.log(data)
-//         setSchoolData(data.school);
-//     })
-//     console.log(schoolData);
-// })
+
 if(params?.id) getData();
 },[params.id]);
 
 return (
-
-    
-<div >
+<div>
  <PageHeader title={schoolData?.name} />
 
  
  <div className="flex flex-wrap">
-     <div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-center items-center h-80">
-         <Image src={schoolData?.photo} alt={schoolData?.name} width={300} height={300} className="rounded"/> 
+     <div className="md:w-1/2 sm:w-full px-24 flex flex-column justify-center items-center h-80">
+         <Image src={schoolData?.photo} alt={schoolData?.name} width={400} height={400} className="rounded"/> 
      </div>
-     <div className="md:w-1/2 sm:w-full p-x-24 flex flex-column items-center h-80">
+     <div className="md:w-1/2 sm:w-full px-24 flex flex-column items-center h-80">
          <div>
-             <p>{schoolData?.desc}</p>
+             <p className="mb-6">{schoolData?.desc}</p>
              <Link href="/schools"> <Button variant="custom" >Back to School Listing </Button> </Link>
          </div>
      </div>
-    <h2 className="w-full text-center text-2xl text-bold p-8 bg-cyan-800 text-white"> Courses Offered at this School</h2>
+    <h2 className="w-full text-center text-2xl font-medium p-6 bg-cyan-600 text-white"> Courses Offered at this School</h2>
+    <div className="w-full content-center">
      <CoursesList schoolId={params.id}/>
+   </div>
  </div>
 {/* Consider adding student/faculty lists of each school */}
+
 
 
 

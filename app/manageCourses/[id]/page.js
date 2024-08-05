@@ -1,5 +1,5 @@
 "use client"
-import SchoolList from "@/components/schoolList";
+import ManageCourse from "@/components/manageCourses";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 
 
-const showAllSchools = ()=> {
+const showAllCourses = ({params})=> {
     const {data:session} = useSession();
     const router = useRouter();
     useEffect(()=> {
@@ -16,11 +16,8 @@ const showAllSchools = ()=> {
         }
     },[]
 )
-
-    
-  
-    return  <SchoolList />
+    return  <ManageCourse update={true} id={params?.id}/>
     
 
 }
-export default showAllSchools
+export default showAllCourses

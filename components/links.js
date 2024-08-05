@@ -9,9 +9,13 @@ import { useState } from "react";
 import { cn } from "@/lib/utils"; 
 import { FiLogOut } from "react-icons/fi";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+
+
 
 
 const Links = ()=>{
+  const {data:session} = useSession();
   const path = usePathname();
   const router = useRouter();
   const endSession = ()=>{
@@ -23,6 +27,16 @@ const Links = ()=>{
       <Link href="/" className={cn("font-bold hover:text-red-600 mx-2", (path=='/'?"text-red-700":"text-blue-950"))}>Home</Link>
       <Link href="/schools" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/schools')?"text-red-700":"text-blue-950"))}>Schools</Link>
       <Link href="/users" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/users')?"text-red-700":"text-blue-950"))}>Users</Link>
+      <Link href="/profile" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/profile')?"text-red-700":"text-blue-950"))}>Profile</Link>
+      {(session?.user?.userType === 1 || session?.user?.userType === 0) && (
+             <Link href="/manageCourses" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/manageCourses')?"text-red-700":"text-blue-950"))}>Manage Courses</Link>
+      )}
+        {(session?.user?.userType === 0) &&( 
+             <Link href="/manageSchools" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/manageSchools')?"text-red-700":"text-blue-950"))}>Manage Schools</Link>
+          )}
+     
+      
+      
       <Button size="sm" variant="link" className="px-3" onClick={endSession}><FiLogOut className="text-red-600 w-4 h-4 text-bold"/></Button>
     </>
   )
@@ -33,7 +47,7 @@ export const NavLinks = ()=>{
   const toggleNavbar = ()=>setClosed(!isClosed);
   return(
     <>
-    <nav className="w-1/4 flex justify-end">
+    <nav className="md:w-fit sm:1/4 flex justify-evenly">
       <div className="hidden md:flex w-full justify-between items-center">
         <Links/>
       </div>

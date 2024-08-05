@@ -5,14 +5,20 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import PageHeader from "@/components/pageHeader"
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const IndividualUser = ({params})=> {
 
 const [user, setUser] = useState({});
 const [school, setSchool] = useState({});
+const router = useRouter();
+const {data:session} = useSession();
 
+if(!(session?.user)){
+  router.push('/');
+}
 useEffect(()=> {
-
     const getData = async ()=> {
         const data = await getUser(params.id);
         const parseUser = JSON.parse(data);
@@ -60,11 +66,11 @@ return (
 
 <div className="flex flex-wrap">
 <PageHeader title={user?.firstName+" "+user?.lastName}/>
-<div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-center items-center h-80"> 
+<div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-center items-center"> 
 <Image src={getImg(user?.pos)} alt={user?.firstName} width={300} height={300} className="rounded"/> 
 </div>
 
-<div className="md:w-1/2 sm:w-full p-x-24 flex flex-column items-center h-80 sm:justify-center md:justify-start">
+<div className="md:w-1/2 sm:w-full p-x-24 flex flex-column items-center sm:justify-center md:justify-start">
     <div className="sm:p-x-12 md:p-x-0">
         <h3> Skills: </h3>
         <ul>{user?.skills?.map((elem, index)=>(

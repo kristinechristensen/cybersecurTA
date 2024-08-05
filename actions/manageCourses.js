@@ -86,12 +86,64 @@ export const updateCourse = async(id, title, crn, desc,level, nTA) => {
             return {success:"The Course Has Been Added"}
             }
         else {
-            return {error: "💀 This is not your course 🎃 and you cannot update it 💀"}
+            return {error: "This is not your course and you cannot update it "}
         }
         } 
         catch (error) {
             console.log(error)
             return{error:"Course not added, make sure to include all properties"}
+        }
+    }
+    else {
+        return {error:"You do not have permission to change or add courses"}
+    }
+}
+
+
+// generate a list of courses by faculty
+export const facultyCourses = async()=>{
+    const session = await auth(); 
+
+    if(session?.user?.userType == 0 || session?.user?.userType == 1) {
+
+    try {
+        await connectToDB();
+        const facultyList = await Course.find({userId:session?.user?.id}).populate('schoolId');
+        return JSON.stringify({success: facultyList});
+
+    }
+    catch(error) {
+        console.error(error);
+        return JSON.stringify({error:"Course List Could Not Be Retrieved"});
+    }
+
+
+    }
+    else {
+        return JSON.stringify({error:"You do not have permission to view courses"});
+    }
+
+}
+
+export const deleteCourse = async(id) => {
+    const session = await auth(); //teachers/admin only
+
+    if(session?.user?.userType == 0 || session?.user?.userType == 1) {
+
+        try {
+            await connectToDB();
+            const course = await Course.findById(id)
+            if(session?.user?.id == course.userId)  {
+            await course.remove(); //save course
+            return {success:"The Course Has Been Deleted"}
+            }
+        else {
+            return {error: "This is not your course and you cannot delete it "}
+        }
+        } 
+        catch (error) {
+            console.log(error)
+            return{error:"Course not deleted, make sure to include all properties"}
         }
     }
     else {

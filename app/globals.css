@@ -57,11 +57,33 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-  input[type="text"], input[type="password"] {
-    border:solid 2px #333;
+  input[type="text"], input[type="password"], textarea, input[type="email"], select {
+    border:solid 1px #bcbcbc;
+    border-radius: 20px;
+    padding: 10px;
   }
-
-
+  form{
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: space-evenly;
+    width: 100%;
+  
+  }
+  form>div{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  form>div>div{
+    display: flex;
+    flex-direction: column
+  }
+  label{
+    font-weight: 700;
+    margin-block: 20px;
+  }
 }
 
 @layer base {

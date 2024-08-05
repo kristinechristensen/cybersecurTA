@@ -10,7 +10,7 @@ import csCerts from "@/userData/certs";
 import ListMaker from "./showList";
 import { getUser } from "@/actions/updateUser";
 import { updateUser } from "@/actions/updateUser";
-
+import { Button } from "./ui/button";
 
 
 
@@ -65,7 +65,8 @@ const UpdateUser =()=>{
                     setFirstName(user.firstName);
                     setLastName(user.lastName);
                     setSchool(school.name);
-                    setUserType(user.userType);
+                    const type = (user.userType===0)?'Admin':((user.userType === 1)?'Faculty':'Student');
+                    setUserType(type);
                     setPhone(user.phone);
                     setsAddress(user.sAddress);
                     setCity(user.city);
@@ -86,8 +87,8 @@ const UpdateUser =()=>{
 
 const formSubmit = (e)=>{
     e.preventDefault();
-    setError(" ");
-    setSuccess(" ")
+    setError("");
+    setSuccess("")
     
     startTransition(()=>{
         //create a server function or API end-point
@@ -121,129 +122,141 @@ const formSubmit = (e)=>{
 
         <form onSubmit={formSubmit}>
         {/* Basic User Info */}
-        <div>
-          <label>First Name:</label>
-          <input type="text" value={firstName} readOnly disabled/>
-        </div>
-        <div>
-          <label>Last Name:</label>
-          <input type="text" value={lastName} readOnly />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input type="email" value={email} readOnly />
-        </div>
-        <div>
-          <label>GMail:</label>
-          <input type="email" value={gmail} onChange={(e) => setGmail(e.target.value)}/>
-        </div>
-        <div>
-          <label>Password:</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </div>
-        <div>
-          <label>School:</label>
-          <input type="text" value={school} readOnly />
-        </div>
-        <div>
-          <label>User Type:</label>
-          <input type="text" value={userType} readOnly /> 
-        </div>
-  
-        {/* User Contact Info */}
-        <div>
-          <label>Phone:</label>
-          <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
-        </div>
-        <div>
-          <label>Street Address:</label>
-          <input type="text" value={sAddress} onChange={(e) => setsAddress(e.target.value)} />
-        </div>
-        <div>
-          <label>City:</label>
-          <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
-        </div>
-        <div>
-          <label>State:</label>
-          <input type="text" value={state} onChange={(e) => setState(e.target.value)} />
-        </div>
-        <div>
-          <label>Zip:</label>
-          <input type="text" value={zip} onChange={(e) => setZip(e.target.value)} />
-        </div>
-  
-        {/* Educational Info */}
-        <div>
-          <label>Program of Study (POS):</label>
-          {/*map the pos  */}
-          <select value={updatePOS} onChange={(e) => {if(e.target.value != "") setupdatePOS(e.target.value) }}>
-          <option value=""></option>
-                {csPOS.map((elem,index) => (
-                    <option value={elem} key={index}>{elem}</option>
-                ))}
-         </select>
-        </div>
-        <div>
-          <label>Level:</label>
-
-          <select value={level} onChange={(e) => {if(e.target.value != "") setLevel(e.target.value)}}>
-                <option value=""></option>
-                <option value="Associate's Degree"> Associate's Degree</option>
-                <option value="Bachelor's Degree"> Bachelor's Degree</option>
-                <option value="Master's Degree"> Master's Degree</option>
-                <option value="Doctoral Degree"> Doctoral Degree</option>
-          </select>
-          
-        </div>
-        <div>
-          <label>Skills:</label>
-        
-         <ListMaker data={updateSkills} hookFunction={setupdateSkills} updateData={updateList} />
-         {/*map the skills  */}
-          <select onChange={(e) => { if(e.target.value != "" && !updateSkills.includes(e.target.value))  {setupdateSkills([...updateSkills, e.target.value]) }}}>
+        <div className="w-1/2">
+          <div>
+            <label>First Name:</label>
+            <input type="text" value={firstName} readOnly disabled/>
+          </div>
+          <div>
+            <label>Last Name:</label>
+            <input type="text" value={lastName} readOnly />
+          </div>
+          <div>
+            <label>Email:</label>
+            <input type="email" value={email} readOnly />
+          </div>
+          <div>
+            <label>GMail:</label>
+            <input type="email" value={gmail} onChange={(e) => setGmail(e.target.value)}/>
+          </div>
+          <div>
+            <label>Password:</label>
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          </div>
+          <div>
+            <label>School:</label>
+            <input type="text" value={school} readOnly />
+          </div>
+          <div>
+            <label>User Type:</label>
+            <input type="text" value={userType} readOnly />
+          </div>
+          {/* User Contact Info */}
+          <div>
+            <label>Phone:</label>
+            <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
+          </div>
+          <div>
+            <label>Street Address:</label>
+            <input type="text" value={sAddress} onChange={(e) => setsAddress(e.target.value)} />
+          </div>
+          <div>
+            <label>City:</label>
+            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
+          </div>
+          <div>
+            <label>State:</label>
+            <input type="text" value={state} onChange={(e) => setState(e.target.value)} />
+          </div>
+          <div>
+            <label>Zip:</label>
+            <input type="text" value={zip} onChange={(e) => setZip(e.target.value)} />
+          </div>
+          {/* Educational Info */}
+          <div>
+            <label>Program of Study (POS):</label>
+            {/*map the pos  */}
+            <select value={updatePOS} onChange={(e) => {if(e.target.value != "") setupdatePOS(e.target.value) }}>
             <option value=""></option>
-                {csSkills.map((elem,index) => (
-                    <option value={elem} key={index}>{elem}</option>
-                ))}
-         </select>
-         
+                  {csPOS.map((elem,index) => (
+                      <option value={elem} key={index}>{elem}</option>
+                  ))}
+           </select>
+          </div>
         </div>
-        <div>
-          <label>Certifications:</label>
+        
+          <div className="w-1/2">
+          <div>
+            <label>Level:</label>
+            <select value={level} onChange={(e) => {if(e.target.value != "") setLevel(e.target.value)}}>
+                  <option value=""></option>
+                  <option value="Associate's Degree"> Associate's Degree</option>
+                  <option value="Bachelor's Degree"> Bachelor's Degree</option>
+                  <option value="Master's Degree"> Master's Degree</option>
+                  <option value="Doctoral Degree"> Doctoral Degree</option>
+            </select>
           
-          <ListMaker data={updateCerts} hookFunction={setupdateCerts} updateData={updateList} />
-             {/*map the certifications  */}
-          <select onChange={(e) => {if(e.target.value != "" && !updateCerts.includes(e.target.value) ) setupdateCerts([...updateCerts, e.target.value]) }}>
-               <option value=""></option>
-                {csCerts.map((elem,index) => (
-                    <option value={elem} key={index}>{elem}</option>
-                ))}
-         </select>     
+          </div>
+          <div>
+            <label>Skills:</label>
+          
+           <ListMaker data={updateSkills} hookFunction={setupdateSkills} updateData={updateList} />
+           {/*map the skills  */}
+            <select onChange={(e) => { if(e.target.value != "" && !updateSkills.includes(e.target.value))  {setupdateSkills([...updateSkills, e.target.value]) }}}>
+              <option value=""></option>
+                  {csSkills.map((elem,index) => (
+                      <option value={elem} key={index}>{elem}</option>
+                  ))}
+           </select>
+          
+          </div>
+          <div>
+            <label>Certifications:</label>
+          
+            <ListMaker data={updateCerts} hookFunction={setupdateCerts} updateData={updateList} />
+               {/*map the certifications  */}
+            <select onChange={(e) => {if(e.target.value != "" && !updateCerts.includes(e.target.value) ) setupdateCerts([...updateCerts, e.target.value]) }}>
+                 <option value=""></option>
+                  {csCerts.map((elem,index) => (
+                      <option value={elem} key={index}>{elem}</option>
+                  ))}
+           </select>
+          </div>
+          <div>
+            <label>Interests:</label>
+            <ListMaker data={updateInterests} hookFunction={setupdateInterests} updateData={updateList} />
+            <select onChange={(e) => {if(e.target.value != ""&& !updateInterests.includes(e.target.value))   setupdateInterests([...updateInterests, e.target.value]) }}>
+            <option value=""></option>
+                  {csInterests.map((elem,index) => (
+                      <option value={elem} key={index}>{elem}</option>
+                  ))}
+           </select>
+          </div>
+          <div>
+            <label>Bio:</label>
+            <textarea value={bio} onChange={(e) => setBio(e.target.value)} />
+          </div>
+          <div>
+            <label>Testimony:</label>
+            <textarea value={testimony} onChange={(e) => setTestimony(e.target.value)} />
+          </div>
+          <div>
+            <label>LinkedIn:</label>
+            <input type="text" value={linkedIn} onChange={(e) => setLinkedIn(e.target.value)} />
+          </div>
         </div>
-        <div>
-          <label>Interests:</label>
-          <ListMaker data={updateInterests} hookFunction={setupdateInterests} updateData={updateList} />
-          <select onChange={(e) => {if(e.target.value != ""&& !updateInterests.includes(e.target.value))   setupdateInterests([...updateInterests, e.target.value]) }}>
-          <option value=""></option>
-                {csInterests.map((elem,index) => (
-                    <option value={elem} key={index}>{elem}</option>
-                ))}
-         </select>
+        
+        {error && (
+          <div className="bg-rose-500/15 p-3 rounded-md flex items-center justify-between gap-x-2 text-sm text-rose-500 w-full">
+            <p className="">{error}</p>
+          </div>
+        )}
+        {success && (
+          <div className="bg-emerald-500/15 p-3 rounded-md flex items-center justify-between gap-x-2 text-sm text-emerald-500 w-full">
+            <p className="">{success}</p>
         </div>
-        <div>
-          <label>Bio:</label>
-          <textarea value={bio} onChange={(e) => setBio(e.target.value)} />
-        </div>
-        <div>
-          <label>Testimony:</label>
-          <textarea value={testimony} onChange={(e) => setTestimony(e.target.value)} />
-        </div>
-        <div>
-          <label>LinkedIn:</label>
-          <input type="text" value={linkedIn} onChange={(e) => setLinkedIn(e.target.value)} />
-        </div>
-        <button type="submit">Submit</button>
-        {error}
+        )}
+        <Button type="submit" variant="custom" className="mt-6 w-full">Update My Information</Button>
       </form>
     )
     

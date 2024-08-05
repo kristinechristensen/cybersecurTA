@@ -45,25 +45,21 @@ const getImg =(pos)=>{
 
 return (
   
-<div className="flex flex-wrap p-10 justify-evenly items-center gap-y-3">
+<div className="flex flex-wrap p-10 justify-evenly items-center gap-8">
   {userList.map((user,index)=> (
-    <Card key={index} className="md:w-1/4 sm:w-full">
+    <Card key={index} className="md:w-1/4 sm:w-full mt-2">
     <CardHeader>
-      <CardTitle className="line-clamp-1">{user.firstName} {user.lastName}</CardTitle>
+      <CardTitle className="line-clamp-1">{user.firstName} {user.lastName} | {user.userType}</CardTitle>
       <CardDescription className="line-clamp-1">{user.school.name} |  {user.pos}</CardDescription>
       {/* <CardDescription>{`State: ${user.sAddress}`}</CardDescription> */}
     </CardHeader>
     <CardContent>
-    <Image src={getImg(user.pos)} alt={user.firstName + " " + user.lastName} width={300} height={300}/>
-      {/* <p>Skills: </p>  <-- save for 
-      <ul>
-        {user.skills.map((elem)=><li key={elem}>{elem}</li>)}
-      </ul> */}
-      
+    <Image src={getImg(user.pos)} alt={user.firstName + " " + user.lastName} width={300} height={300} className="w-full"/>
+       
       <p>{user.description}</p>
     </CardContent>
     <CardFooter>
-     <Link href={`/users/${user._id}`}> <Button>Learn More </Button></Link>
+     <Link className='w-full' href={`/users/${user._id}`}> <Button variant="custom" className='w-full'>Learn More </Button></Link>
     </CardFooter>
   </Card>
   ))}

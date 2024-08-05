@@ -1,5 +1,5 @@
 "use client"
-import SchoolList from "@/components/schoolList";
+import SchoolListAdmin from "@/components/schoolListAdmin";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 
 
-const showAllSchools = ()=> {
+const showAllSchoolsAdmin = ()=> {
     const {data:session} = useSession();
     const router = useRouter();
     useEffect(()=> {
@@ -16,11 +16,8 @@ const showAllSchools = ()=> {
         }
     },[]
 )
-
-    
-  
-    return  <SchoolList />
+    return  <SchoolListAdmin/>
     
 
 }
-export default showAllSchools
+export default showAllSchoolsAdmin

@@ -1,13 +1,11 @@
-"use client"
-import SchoolList from "@/components/schoolList";
+'use client'
+import FacultyCourseList from "@/components/facultyCourseList";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 
-
-
-const showAllSchools = ()=> {
+const GetCourses = ()=>{
     const {data:session} = useSession();
     const router = useRouter();
     useEffect(()=> {
@@ -15,12 +13,9 @@ const showAllSchools = ()=> {
           router.push('/');
         }
     },[]
-)
+    )
 
-    
-  
-    return  <SchoolList />
-    
-
+    return <FacultyCourseList/>
 }
-export default showAllSchools
+
+export default GetCourses;
