@@ -46,8 +46,8 @@ import { useRouter } from "next/navigation";
 
     const registerHandler = (e)=>{
         e.preventDefault();
-        setError(" ");
-        setSuccess(" ")
+        setError("");
+        setSuccess("")
         
         startTransition(()=>{
             //create a server function or API end-point

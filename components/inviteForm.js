@@ -3,7 +3,7 @@ import { createInvite } from "@/actions/invite";
 import { useSession } from "next-auth/react";
 import { FaRegCopy } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
-
+import { Button } from "./ui/button";
 
 
 
@@ -41,7 +41,7 @@ export const InviteForm = () => {
     return (
         //create form 
         <form onSubmit={(e) => submitInvite(e)}>
-            <input type="text" name="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
+           <label>Student Email Account</label> <input type="text" name="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
 
             {session?.user?.userType === 0 ? (
                 <select value={userType} onChange={(e) => { setUserType(e.target.value) }}>
@@ -55,7 +55,7 @@ export const InviteForm = () => {
                 </select>
             )}
 
-            <input type="submit" />
+            <Button type="submit" variant="custom">Submit </Button>
             {success && (
             <div className="bg-emerald-500/15 p-3 rounded-md flex items-center justify-between gap-x-2 text-sm text-blue-500">
               <p className="">Link is ready click the icon to copy it!

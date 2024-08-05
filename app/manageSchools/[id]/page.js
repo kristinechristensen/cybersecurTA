@@ -1,6 +1,5 @@
 "use client"
 import ManageSchool from "@/components/manageSchools"
-import PageHeader from "@/components/pageHeader"
 
 
 export default function UpdateSchool({params}){

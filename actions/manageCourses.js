@@ -134,7 +134,7 @@ export const deleteCourse = async(id) => {
             await connectToDB();
             const course = await Course.findById(id)
             if(session?.user?.id == course.userId)  {
-            await course.remove(); //save course
+            await course.findByIdAndRemove(id); //save course
             return {success:"The Course Has Been Deleted"}
             }
         else {

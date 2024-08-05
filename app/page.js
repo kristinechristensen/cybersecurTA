@@ -67,6 +67,9 @@ export default function Home() {
           {(session?.user?.userType === 1 || session?.user?.userType === 0) && (
             <div className="md:w-1/2 sm:w-full">
               <h2>Invite a student</h2>
+              <p>
+                  To select a quality student for Cyber SecurTA, consider their academic performance, demonstrated skills in cybersecurity, and passion for teaching. Look for candidates with strong technical knowledge, relevant certifications, and hands-on experience in cybersecurity projects. Additionally, prioritize students who exhibit excellent communication skills, a collaborative mindset, and a genuine interest in educating others. Remember, Cyber SecurTA is an invite-only platform, so your selection ensures we maintain a high standard of excellence and dedication within our community.
+</p>
               <InviteForm />
             </div>
           )}
