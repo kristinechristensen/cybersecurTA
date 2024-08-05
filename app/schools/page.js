@@ -8,14 +8,14 @@ import { useEffect } from "react";
 
 
 const showAllSchools = ()=> {
-    const {data:session} = useSession();
-    const router = useRouter();
-    useEffect(()=> {
-        if(!(session?.user)){
-          router.push('/');
-        }
-    },[]
-)
+//     const {data:session} = useSession();
+//     const router = useRouter();
+//     useEffect(()=> {
+//         if(!(session?.user)){
+//           router.push('/');
+//         }
+//     },[]
+// )
 
     
   
