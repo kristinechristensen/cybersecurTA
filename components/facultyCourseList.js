@@ -7,7 +7,7 @@ import { deleteCourse } from "@/actions/manageCourses"
 import { Button } from "./ui/button";
 import PageHeader from "./pageHeader";
 import { useRouter } from "next/navigation"
-
+import { MdAssignmentAdd } from "react-icons/md";
 
 
 //show course listing by faculty
@@ -58,9 +58,9 @@ const FacultyCourseList = () => {
 
             <div className="flex flex-wrap">
      
-     <div className="px-24 flex flex-wrap justify-center w-full items-center">
+     <div className="px-24 flex flex-wrap justify-center w-full items-cente text-lg">
      <div className="p-6 bg-blue-100"> 
-        <h2 className="text-3xl font-semibold mb-4">Add, Edit, or Delete Courses</h2>
+        <h2 className="text-3xl font-semibold mb-4 flex items-center"><MdAssignmentAdd className="mr-2 text-4xl" />Add, Edit, or Delete Courses</h2>
         <p>Enter or update the course information in the provided fields, including title, CRN, description, level, and number of TAs. Select the associated school from the dropdown menu. Click "Submit" to save your changes. If editing an existing course, the form will be pre-filled with current data. Any errors or success messages will be displayed after submission.</p>
         
         <p className="mt-4">Double-check all information before clicking the Submit button at the bottom to save your changes. You'll see a confirmation message upon successful update or an error message if there's an issue. If you have any questions or problems, please contact the <Link href="mailto:cybersecurta@gmail.com" className="text-cyan-700 hover:text-red-600 font-semibold">system administrator </Link>.</p>

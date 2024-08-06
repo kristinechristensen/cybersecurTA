@@ -16,7 +16,7 @@ return (
   {courseList.map((course,index)=> (
     <Card key={index} className="md:w-1/4 sm:w-full">
     <CardHeader>
-      <CardTitle  className="line-clamp-1">{course.title} | {course.crn}</CardTitle>
+      <CardTitle  className="line-clamp-1 text-lg">{course.title} | {course.crn}</CardTitle>
       <CardDescription  className="line-clamp-1">{course.schoolId.name}</CardDescription>
       {/* <CardDescription>{`State: ${school.sAddress}`}</CardDescription> */}
     </CardHeader>

@@ -75,24 +75,16 @@ const RegisterUser = ({ params }) => {
             <div className="px-24 flex flex-wrap justify-center w-full items-center">
                 <div className="p-6 bg-blue-100 flex flex-wrap mb-8">
                     <div className="md:w-1/2 sm:w-full p-6">
-                        <h2 className="text-3xl font-semibold mb-4">Welcome to <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span><span className="bg-clip-text text-red-600 font-semibold">TA</span> !</h2>
+                        <h2 className="text-4xl font-semibold mb-4">Welcome to <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span><span className="bg-clip-text text-red-600 font-semibold">TA</span> !</h2>
 
-                        
-                        <p>
-                            <Image
-                                src="/assets/congratsTA.jpg"
-                                width="400"
-                                height="400"
-                                align="left"
-                                alt="Students working together"
-                                className="mr-8 rounded-lg"
-                            />
-
-                            This invitation marks the start of your cybersecurity education journey! You're joining a collaborative community of faculty and learners and will gain  access to valuable resources and connections. This platform will connect you with like-minded individuals, seasoned faculty, and resources that can enance your skills and knowledge. Take a moment to carefully fill out all fields in the regisratio form.</p>
+                        <Image src="/assets/congratsTA.jpg" width="400" height="400" align="left" alt="Students working together"              className="mr-8 rounded-lg drop-shadow-lg" />
+                        <p className="text-lg pt-2">
+                            This invitation marks the start of your cybersecurity education journey! You're joining a collaborative community of faculty and learners and will gain  access to valuable resources and connections. </p>
+                        <p className="text-lg pt-2">This platform will connect you with like-minded individuals, seasoned faculty, and resources that can enance your skills and knowledge. Take a moment to carefully fill out all fields in the regisratio form.</p>
 
 
-                        <p className="mt-6">This is your first step towards shaping the future of cybersecurity education!</p>
-                        <p>Let's get started!</p>
+                        <p className="mt-6 text-lg pt-2">This is your first step towards shaping the future of cybersecurity education!</p>
+                        <p className="mt-6 text-2xl pt-2 text-blue-900 font-bold">Let's get started!</p>
                     </div>
 
 

@@ -8,7 +8,7 @@ const EmblaCarousel = (props) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()])
 
   return (
-    <section className="embla border-b-2 border-blue-900">
+    <section className="embla border-b-4 border-blue-950">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((index) => (

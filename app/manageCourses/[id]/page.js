@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 
 const showAllCourses = ({params})=> {
-    return  <ManageCourse update={true} id={params?.id}/>
+    return  <ManageCourse update={true} id={params?.id} />
     
 
 }

@@ -34,7 +34,7 @@ return (
  <PageHeader title={schoolData?.name} />
 
  
- <div className="flex flex-wrap">
+ <div className="flex flex-wrap text-lg">
  <div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-end pr-20 items-center"> 
          <Image src={schoolData?.photo} alt={schoolData?.name} width={400} height={400} className="rounded hidden sm:block"/> 
      </div>

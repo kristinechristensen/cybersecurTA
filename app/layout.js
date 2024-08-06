@@ -5,6 +5,7 @@ import {SessionProvider} from "next-auth/react"; //session data for the app - in
 import { Header } from "@/components/nav";
 import { cn } from "@/lib/utils";
 const inter = Roboto({ weight:["300", "400", "500","900"], subsets: ["latin"]});
+import Image from "next/image";
 
 export const metadata = {
   title: "CyberSecurTA",
@@ -26,10 +27,11 @@ export default function RootLayout({ children, session }) {
           &#169;2024 - CyberSecurTA
         </p>
         <p className="w-2/5 mt-4">
-          Cyber SecurTA connects cybersecurity students with teaching opportunities, enhancing education nationwide.
+          CyberSecurTA connects cybersecurity students with teaching opportunities, enhancing education nationwide.
           Funded by NSF grant #2054724 and Microsoft ACCCE grant #2021080009
         </p> </div>
-        <div className="md:w-1/2 sm:w-full text-right">&#169;2024 - CyberSecurTA </div>
+        <div className="md:w-1/2 sm:w-full text-right">
+        <Image src="/assets/inverseLogo.svg" width="125" height="125" align="right" alt="CybersecurTA" className="mr-8 drop-shadow-lg" /> </div>
         </div>
         
         </footer>
