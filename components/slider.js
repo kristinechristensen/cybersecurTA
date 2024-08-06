@@ -1,6 +1,7 @@
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image'
+import { FcLock } from "react-icons/fc";
 
 const EmblaCarousel = (props) => {
   const { slides, options } = props
@@ -12,11 +13,20 @@ const EmblaCarousel = (props) => {
         <div className="embla__container">
           {slides.map((index) => (
             <div className="embla__slide" key={index}>
-              <div className={`embla__slide__number slider slider${index + 1}`}>  
-              {/* <div><span class="bg-clip-text text-blue-900">CyberSecur</span><span class="bg-clip-text text-red-600">TA</span></div> */}
-                
+              <div className={`embla__slide__number slider  text-white slider${index + 1}`}>
+                <div className="bg-white opacity-80 p-6 sm:p-10 w-full sm:w-2/3 md:w-1/2 lg:w-1/3 border-4 border-blue-900 rounded-xl drop-shadow-lg">
+
+                  <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4">
+                    <span className="bg-clip-text text-blue-900 drop-shadow-md">CyberSecur</span>
+                    <span className="bg-clip-text text-red-600 drop-shadow-md">TA:</span>
+                  </div>
+                  <div className="flex items-center text-xl sm:text-1xl md:text-3xl italic font-medium text-black">
+                    <FcLock className="text-8xl mr-2" />
+                    <span>Hacking the Gap and Building the Future Workforce!</span></div>
                 </div>
-              
+
+              </div>
+
               {/* Background style allows text: <Image src={`/slider/slider${index + 1}.jpg`} layout="responsive" width={1000} height={300} alt="CybersecurTA" /> */}
             </div>
           ))}

@@ -113,7 +113,7 @@ const ManageCourse = ({ update = false, id }) => {
         <input type="text" value={courseLevel} onChange={(e) => setCourseLevel(e.target.value)} />
       </div>
       <div>
-        <label>Course TA:</label>
+        <label>Number of TAs needed:</label>
         <input type="text" value={coursenTA} onChange={(e) => setCoursenTA(e.target.value)} />
       </div>
       <div>

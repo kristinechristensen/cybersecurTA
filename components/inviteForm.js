@@ -41,7 +41,7 @@ export const InviteForm = () => {
     return (
         //create form 
         <form onSubmit={(e) => submitInvite(e)} className="flex-col gap-3">
-           <label className="m-0">Enter the Student Email Account Below to Generate a Invitation Token:</label> <input type="text" name="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
+           <label className="m-0 text-2xl text-blue-900">Enter the Student Email Account Below to Generate a Invitation Token:</label> <input type="text" name="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
             
             {session?.user?.userType === 0 ? (
                 <select value={userType} onChange={(e) => { setUserType(e.target.value) }}>

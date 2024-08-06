@@ -56,11 +56,23 @@ const getImg =(pos)=>{
     }
 }
 
+const getUserType =(userType)=>{
+    switch (userType){
+        case 0: 
+            return  "Administrator";
+        case 1:
+            return "Faculty";
+        case 2:
+            return "Student";
+        default: 
+            return ""
+    }}
+
 
 return (
 
 <div className="flex flex-wrap">
-<PageHeader title={user?.firstName+" "+user?.lastName}/>
+<PageHeader title={user?.firstName+" "+user?.lastName + ": " + getUserType(user?.userType)}/>
 <div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-center items-center"> 
 <Image src={getImg(user?.pos)} alt={user?.firstName} width={300} height={300} className="rounded"/> 
 </div>

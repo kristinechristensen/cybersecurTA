@@ -87,6 +87,10 @@ const ManageSchool = ({ update = false, id }) => {
     <div>
       <PageHeader title={update?`Edit School: ${schoolName}`:"Add School"} />
 
+
+
+      
+
     <div className="flex flex-wrap mt-9">
      <div className="md:w-1/2 sm:w-full px-24 flex flex-col justify-start items-center">
          <Image src={schoolPhoto || '/pos/ask.png'} alt={schoolName} width={400} height={400} className="rounded"/> 

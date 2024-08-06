@@ -48,11 +48,33 @@ const FacultyCourseList = () => {
     
     return (
 
+        
+
+
+
+
         <div>
-            <PageHeader title="Add or Edit Courses" />
-            <div className="p-10">
+            <PageHeader title="Manage Your Courses" />
+
+            <div className="flex flex-wrap">
+     
+     <div className="px-24 flex flex-wrap justify-center w-full items-center">
+     <div className="p-6 bg-blue-100"> 
+        <h2 className="text-3xl font-semibold mb-4">Add, Edit, or Delete Courses</h2>
+        <p>Enter or update the course information in the provided fields, including title, CRN, description, level, and number of TAs. Select the associated school from the dropdown menu. Click "Submit" to save your changes. If editing an existing course, the form will be pre-filled with current data. Any errors or success messages will be displayed after submission.</p>
+        
+        <p className="mt-4">Double-check all information before clicking the Submit button at the bottom to save your changes. You'll see a confirmation message upon successful update or an error message if there's an issue. If you have any questions or problems, please contact the <Link href="mailto:cybersecurta@gmail.com" className="text-cyan-700 hover:text-red-600 font-semibold">system administrator </Link>.</p>
+  
+   
+   <div>
                 <Link href='/manageCourses/add' style={{float:'right'}}><Button variant="custom">Add Courses</Button></Link>
-            </div>
+            </div></div>
+ </div>
+</div>
+
+
+
+            
             <CourseCards courseList={courses} showEdit={true} handleDelete={handleDelete}/>
         </div>
 

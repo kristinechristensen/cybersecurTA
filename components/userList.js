@@ -76,35 +76,63 @@ export const TempUserList = ()=>{
     return (
         
         <div>
-            <PageHeader title="Participants" />
+            <PageHeader title="Search Participants" />
 
-            <div className="w-full flex justify-evenly">
-                <select value={type} onChange={(e)=>{setType(e.target.value)}}>
-                    <option value={-1}>All</option>
-                    <option value={0}>Admin</option>
-                    <option value={1}>Faculty</option>
-                    <option value={2}>Student</option>
-                </select>
-                <select value={pos} onChange={(e)=>{setPos(e.target.value)}}>
-                    <option value=" ">All</option>
-                    {csPOS.map(elem=>{
-                        return <option value={elem} key={elem}>{elem}</option>
-                    })}
-                </select>
-                <select value={skills} onChange={(e)=>{setSkills(e.target.value)}}>
-                    <option value=" ">All</option>
-                    {csSkills.map(elem=>{
-                        return <option value={elem} key={elem}>{elem}</option>
-                    })}
-                </select>
-                <select value={certs} onChange={(e)=>{setCerts(e.target.value)}}>
-                    <option value=" ">All</option>
-                    {csCerts.map(elem=>{
-                        return <option value={elem} key={elem}>{elem}</option>
-                    })}
-                </select>
-                <Button variant="custom" onClick={handleFilter}>Filter</Button>
+            <div className="px-24 flex flex-wrap justify-center w-full items-center">
+            <div className="p-8 bg-blue-100 flex flex-wrap "> 
+           
+           
+            <div className="md:w-1/2 sm:w-full p-6">
+                <h2 className="text-3xl font-semibold mb-4">Find Your Match</h2>
+                <p className="mr-20">This page is designed to help you quickly locate specific groups or individuals within the <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span><span className="bg-clip-text text-red-600 font-semibold">TA</span> community based on their roles and expertise. The set of dropdown menus allow you to refine your search based on various criteria. You can filter participants by their user type (choosing between All, Admin, Faculty, or Student), program of study, specific cybersecurity skills, and certifications. </p>
                 
+                <p className="mr-20 mt-6">After selecting your desired filters, simply click the "Filter" button to apply them. The page will then display a list of participant cards matching your criteria. If you wish to view all participants again, you can reset the filters by selecting "All" in each dropdown and clicking "Filter" once more. </p>
+            </div>
+
+               <div className="lg:w-1/2 md:w-full sm:w-full align-middle">
+                <div className="mb-4">
+                    <label>Select User Type</label>
+                        <select value={type} className="w-full" onChange={(e)=>{setType(e.target.value)}}>
+                            <option value={-1}>All</option>
+                            <option value={0}>Admin</option>
+                            <option value={1}>Faculty</option>
+                            <option value={2}>Student</option>
+                        </select>
+                </div>
+                <div>
+                    <label>Search Program of Study</label>
+                        <select value={pos} className="w-full" onChange={(e)=>{setPos(e.target.value)}}>
+                            <option value=" ">All</option>
+                            {csPOS.map(elem=>{
+                                return <option value={elem} key={elem}>{elem}</option>
+                            })}
+                        </select>
+                </div>
+                    <div>
+                        <label>Search Skills</label>
+                        <select value={skills} className="w-full" onChange={(e)=>{setSkills(e.target.value)}}>
+                            <option value=" ">All</option>
+                            {csSkills.map(elem=>{
+                                return <option value={elem} key={elem}>{elem}</option>
+                            })}
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Search Certifications</label>
+                        <select value={certs}  className="w-full" onChange={(e)=>{setCerts(e.target.value)}}>
+                            <option value=" ">All</option>
+                            {csCerts.map(elem=>{
+                                return <option value={elem} key={elem}>{elem}</option>
+                            })}
+                        </select>
+                    </div>
+                    
+
+                    <Button variant="custom" className="mt-6 w-full align-center" onClick={handleFilter}>Search for Participants</Button>
+            </div>
+            
+            </div>
             </div>
             <UserCard userList={filteredUsers} />
         </div>
