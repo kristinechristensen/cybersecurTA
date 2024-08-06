@@ -41,19 +41,25 @@ export const InviteForm = () => {
     return (
         //create form 
         <form onSubmit={(e) => submitInvite(e)} className="flex-col gap-3">
-           <label className="m-0 text-2xl text-blue-900">Enter the Student Email Account Below to Generate a Invitation Token:</label> <input type="text" name="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
-            
-            {session?.user?.userType === 0 ? (
-                <select value={userType} onChange={(e) => { setUserType(e.target.value) }}>
-                    <option value="2">Student</option>
-                    <option value="1">Faculty</option>
-                    <option value="0">Administrator</option>
-                </select>
-            ) : (
-                <select value={userType} onChange={(e) => { setUserType(e.target.value) }}>
-                    <option value="2">Student</option>
-                </select>
-            )}
+           <h2 className="m-0 p-0 text-2xl text-blue-900 font-semibold">Enter the Student Email Account Below to Generate a Invitation Token:</h2> 
+           <div className="m-0 p-0">
+               <label className="mb-0">Student Email Address</label>
+               <input type="text" name="email" value={email} className="mb-0" onChange={(e) => { setEmail(e.target.value) }} />
+           </div>
+                 <div  className="m-0 p-0"> 
+          <label  className="m-0"> Account Type</label>
+          {session?.user?.userType === 0 ? (
+              <select value={userType} onChange={(e) => { setUserType(e.target.value) }}>
+                  <option value="2">Student</option>
+                  <option value="1">Faculty</option>
+                  <option value="0">Administrator</option>
+              </select>
+          ) : (
+              <select value={userType} onChange={(e) => { setUserType(e.target.value) }}>
+                  <option value="2">Student</option>
+              </select>
+          )}
+      </div>
 
             <Button type="submit" variant="custom">Submit </Button>
             {success && (
@@ -67,6 +73,8 @@ export const InviteForm = () => {
                   }
                 </div>
             </div>
+
+            
           )}
             
             {error}

@@ -74,10 +74,10 @@ import { Button } from "@/components/ui/button";
         <div className="px-24 flex flex-wrap justify-center w-full items-center">
         <div className="p-6 bg-blue-100 flex flex-wrap mb-8"> 
         <div className="md:w-1/2 sm:w-full p-6">
-                <h2 className="text-3xl font-semibold mb-4">Congratulations!</h2>
-                <p>This page is designed to help you quickly locate specific groups or individuals within the <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span><span className="bg-clip-text text-red-600 font-semibold">TA</span> community based on their roles and expertise. The set of dropdown menus allow you to refine your search based on various criteria. You can filter participants by their user type (choosing between All, Admin, Faculty, or Student), program of study, specific cybersecurity skills, and certifications. </p>
+                <h2 className="text-3xl font-semibold mb-4">Welcome to <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span><span className="bg-clip-text text-red-600 font-semibold">TA</span> !</h2>
+                <p>This invitation marks the start of your cybersecurity education journy! community based on their roles and expertise. The set of dropdown menus allow you to refine your search based on various criteria. You can filter participants by their user type (choosing between All, Admin, Faculty, or Student), program of study, specific cybersecurity skills, and certifications. </p>
                 
-                <p className="mt-6">After selecting your desired filters, simply click the "Filter" button to apply them. The page will then display a list of participant cards matching your criteria. If you wish to view all participants again, you can reset the filters by selecting "All" in each dropdown and clicking "Filter" once more. </p>
+                <p className="mt-6"></p>
             </div>
 
 
