@@ -21,7 +21,14 @@ export default function RootLayout({ children, session }) {
         </SessionProvider>
         <footer className={styles.footer}>
           <div className="flex flex-wrap w-full px-8">
-        <div className="md:w-1/2 sm:w-full">&#169;2024 - CyberSecurTA - Supported by the NSF </div>
+        <div className="md:w-1/2 sm:w-full">
+        <p className="text-xl font-bold">
+          &#169;2024 - CyberSecurTA
+        </p>
+        <p className="w-2/5 mt-4">
+          Cyber SecurTA connects cybersecurity students with teaching opportunities, enhancing education nationwide.
+          Funded by NSF grant #2054724 and Microsoft ACCCE grant #2021080009
+        </p> </div>
         <div className="md:w-1/2 sm:w-full text-right">&#169;2024 - CyberSecurTA </div>
         </div>
         
