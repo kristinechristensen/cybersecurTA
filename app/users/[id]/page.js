@@ -73,33 +73,35 @@ return (
 
 <div className="flex flex-wrap">
 <PageHeader title={user?.firstName+" "+user?.lastName + ": " + getUserType(user?.userType)}/>
-<div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-center items-center"> 
-<Image src={getImg(user?.pos)} alt={user?.firstName} width={300} height={300} className="rounded"/> 
+
+<div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-end pr-20 items-center"> 
+<Image src={getImg(user?.pos)} alt={user?.firstName} width={400} height={300} className="rounded hidden sm:block"/> 
 </div>
 
 <div className="md:w-1/2 sm:w-full p-x-24 flex flex-column items-center sm:justify-center md:justify-start">
-    <div className="sm:p-x-12 md:p-x-0">
-        <h3> Skills: </h3>
-        <ul>{user?.skills?.map((elem, index)=>(
+
+    <div className="mt-8 sm:p-x-12 md:p-x-0">
+        <h3 className="mt-2 font-semibold"> Skills: </h3>
+        <ul className="ml-6">{user?.skills?.map((elem, index)=>(
             <li key={index+""+elem} className="list-image-[url(/assets/bCheck.svg)]">{elem}</li>
         ))}
         </ul>
-        <h3> Interests: </h3>
-        <ul>{user?.interests?.map((elem, index)=>(
+        <h3 className="mt-2 font-semibold"> Interests: </h3>
+        <ul className="ml-6">{user?.interests?.map((elem, index)=>(
             <li key={index+""+elem}>{elem}</li>
         ))}
         </ul>
-        <h3> Certifications: </h3>
-        <ul>{user?.certs?.map((elem, index)=>(
+        <h3 className="mt-2 font-semibold"> Certifications: </h3>
+        <ul className="ml-6">{user?.certs?.map((elem, index)=>(
             <li key={index+""+elem}>{elem}</li>
         ))}
         </ul>
-        <h2 className="font-bold">Attending</h2>
-        <p>{school?.name}</p>
-        <p>{school?.desc}</p>
-        <h2>Contact</h2>
-        {user?.linkedIn && (<Link href={user?.linkedIn}><p>{user?.linkedIn}</p></Link>)}
-        <Link href={"mailto:"+user?.email}><p>{user?.email}</p></Link>
+        <h2 className="mt-2 font-semibold">Attending</h2>
+        <p className="font-medium ml-4">{school?.name}</p>
+        <p className="ml-4">{school?.desc}</p>
+        <h2 className="mt-2 font-semibold">Contact Information</h2>
+        <p className="ml-4"> Email Address: <Link href={"mailto:"+user?.email}>{user?.email}</Link></p>
+        <p className="ml-4">  {user?.linkedIn && (<Link href={user?.linkedIn}><p>{user?.linkedIn}</p></Link>)}</p>
         <p className="m-4">
         <Link href="/users"><Button variant="custom">Back to Participants Listing </Button> </Link></p>
     </div>

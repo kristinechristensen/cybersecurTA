@@ -35,8 +35,8 @@ return (
 
  
  <div className="flex flex-wrap">
-     <div className="md:w-1/2 sm:w-full px-24 flex flex-column justify-center items-center h-80">
-         <Image src={schoolData?.photo} alt={schoolData?.name} width={400} height={400} className="rounded"/> 
+ <div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-end pr-20 items-center"> 
+         <Image src={schoolData?.photo} alt={schoolData?.name} width={400} height={400} className="rounded hidden sm:block"/> 
      </div>
      <div className="md:w-1/2 sm:w-full px-24 flex flex-column items-center h-80">
          <div>
