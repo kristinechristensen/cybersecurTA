@@ -80,7 +80,7 @@ const RegisterUser = ({ params }) => {
                         <Image src="/assets/congratTA.jpg" width="400" height="400" align="left" alt="Congratulations!"              className="mr-8 rounded-lg drop-shadow-lg" />
                         <p className="text-lg pt-2">
                             This invitation marks the start of your cybersecurity education journey! You're joining a collaborative community of faculty and learners and will gain  access to valuable resources and connections. </p>
-                        <p className="text-lg pt-2">This platform will connect you with like-minded individuals, seasoned faculty, and resources that can enance your skills and knowledge. Take a moment to carefully fill out all fields in the regisratio form.</p>
+                        <p className="text-lg pt-2">This platform will connect you with like-minded individuals, seasoned faculty, and resources that can enance your skills and knowledge. Take a moment to carefully fill out all fields in the regisration form.</p>
 
 
                         <p className="mt-6 text-lg pt-2">This is your first step towards shaping the future of cybersecurity education!</p>
