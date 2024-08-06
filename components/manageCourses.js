@@ -9,7 +9,6 @@ import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 
 const ManageCourse = ({ update = false, id }) => {
-
   { /* Display Course Information */ }
   const [courseTitle, setCourseTitle] = useState("");
   const [courseCRN, setCourseCRN] = useState("");
@@ -28,7 +27,10 @@ const ManageCourse = ({ update = false, id }) => {
      if(update){
         getCourse(id).then((courseData)=> {
         courseData = JSON.parse(courseData);
-        
+        if(courseData.error && courseData.error=="Not Logged in") {
+          router.push('/')
+          return null;
+        }
         if (courseData.error) {
             setError(courseData.error)
         }

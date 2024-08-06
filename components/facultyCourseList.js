@@ -6,20 +6,24 @@ import Link from "next/link";
 import { deleteCourse } from "@/actions/manageCourses"
 import { Button } from "./ui/button";
 import PageHeader from "./pageHeader";
+import { useRouter } from "next/navigation"
 
 
 
 //show course listing by faculty
 
 const FacultyCourseList = () => {
-    
+    const router = useRouter();
     const [courses, setCourses] = useState([]);
     // const [filteredCourses, setFilteredCourses] = useState([]);
     // const [level, setLevel] = useState("");
     const getData = async()=>{
         const values = await facultyCourses(); 
         const resp = JSON.parse(values);
-        console.log(resp);
+        if(resp.error && resp.error=="Not Logged in") {
+            router.push('/')
+            return null;
+        }
         if(!resp?.error)setCourses([...resp.success]);
         // if(!resp?.error)setFilteredCourses([...resp.success]);
     }

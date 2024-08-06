@@ -6,15 +6,21 @@ import { SchoolCards } from "./uiViews/schoolCards"
 import PageHeader from "./pageHeader"
 import Link from "next/link"
 import { Button } from "./ui/button"
+import { useRouter } from "next/navigation"
 
 //show school listing
 
 const SchoolListAdmin = () => {
     
     const [schools, setSchools] = useState([]);
+    const router = useRouter();
     const getData = async()=>{
         const values = await getSchools();
         const resp = JSON.parse(values);
+        if(resp.error && resp.error=="Not Logged in") {
+            router.push('/')
+            return null;
+        }
         setSchools([...resp]);
     }
     useEffect(() => {

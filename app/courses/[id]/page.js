@@ -12,15 +12,7 @@ const IndividualCourse = ({params})=> {
 
 const [courseData, setCourseData] = useState({});
 
-const {data:session} = useSession();
-const router = useRouter();
-
-  
 useEffect(()=> {
-   if(!(session?.user)){
-        router.push('/');
-      }
-
     const getData = async ()=> {
         const data = await getCourse(params.id);
         const parseCourse = JSON.parse(data);

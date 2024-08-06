@@ -34,7 +34,7 @@ export default function Home() {
 
 
   return (
-    <div className={styles.main}>
+    <div>
       <EmblaCarousel slides={SLIDES} options={OPTIONS} />
       {/* create two column layout */}
 
@@ -45,32 +45,35 @@ export default function Home() {
             alt="Students working together" />
 
         </div>
+
+        
         {/* Show for users not logged in */}
           {!(session?.user) && (
+            
             <div className="md:w-1/2 sm:w-full">
-            <h3 className="text-5xl font-bold text-gray-900 sm:text-5xl md:text-6xl pb-6"> Discover <span className="bg-clip-text text-blue-900">CyberSecur</span><span className="bg-clip-text text-red-600">TA:</span>
+            <h3 className="text-5xl font-bold pb-2 border-l-8 border-blue-900 pl-6 text-gray-900 sm:text-5xl md:text-6xl my-4"> Discover <span className="bg-clip-text text-blue-900">CyberSecur</span><span className="bg-clip-text text-red-600">TA:</span>
             </h3>
-            <h3 className="text-4xl font-bold">Revolutionizing Cybersecurity Education!</h3>
-            <p className="mb-3 text-gray-500 dark:text-gray-400 pb-6">Are you a cybersecurity student looking to gain real-world teaching
+            <h3 className="text-4xl font-bold mb-4">Revolutionizing Cybersecurity Education!</h3>
+            <p className="mb-3 text-gray-600">Are you a cybersecurity student looking to gain real-world teaching
               experience? Or an educator seeking skilled teaching assistants to
-              enhance your classroom? CyberSecurTA is your ultimate solution!</p>
-            <h3 className="text-2xl font-bold mb-5 text-red-700"> Participation is Invitation Only</h3>
-            <p className="mb-3 text-gray-500 dark:text-gray-400 pb-6 ">Our innovative platform connects passionate cybersecurity
+              enhance your classroom? <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span><span className="bg-clip-text text-red-600 font-semibold">TA</span> is your ultimate solution!</p>
+            <h3 className="text-lg italic font-bold mb-3 text-red-700"> Participation is Invitation Only</h3>
+            <p className="mb-3 text-gray-600">Our innovative platform connects passionate cybersecurity
               students with educators in need of knowledgeable TAs, creating a
               seamless match based on skills and availability.</p>
-            Together, we are bridging the gap in cybersecurity education,
-            empowering future leaders, and securing our digital future.
+              <p className="mb-3 text-gray-600"> Together, we are bridging the gap in cybersecurity education,
+            empowering future leaders, and securing our digital future.</p>
           </div>
           )}
 {/* 
           show to admins and faculty */}
           {(session?.user?.userType === 1 || session?.user?.userType === 0) && (
             <div className="md:w-1/2 sm:w-full">
-              <h2>Invite a student</h2>
-              <p>
-                  To select a quality student for Cyber SecurTA, consider their academic performance, demonstrated skills in cybersecurity, and passion for teaching. Look for candidates with strong technical knowledge, relevant certifications, and hands-on experience in cybersecurity projects. Additionally, prioritize students who exhibit excellent communication skills, a collaborative mindset, and a genuine interest in educating others. Remember, Cyber SecurTA is an invite-only platform, so your selection ensures we maintain a high standard of excellence and dedication within our community.
-</p>
-              <InviteForm />
+                <h3 className="text-5xl font-bold pb-2 border-l-8 border-blue-900 pl-6 text-gray-900 sm:text-5xl md:text-6xl my-4"> Invite a Student to Join <span className="bg-clip-text text-blue-900">CyberSecur</span><span className="bg-clip-text text-red-600">TA:</span>
+                </h3>
+              <p>        To select a quality student for <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span><span className="bg-clip-text text-red-600 font-semibold">TA</span>, consider their academic performance, demonstrated skills in cybersecurity, and passion for teaching. Look for candidates with strong technical knowledge, relevant certifications, and hands-on experience in cybersecurity projects. </p>
+             <p className="my-4">Additionally, prioritize students who exhibit excellent communication skills, a collaborative mindset, and a genuine interest in educating others. Remember, <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span><span className="bg-clip-text text-red-600 font-semibold">TA</span> is an <span className="font-bold">invite-only</span> platform, so your selection ensures we maintain a high standard of excellence and dedication within our community.
+</p>              <InviteForm />
             </div>
           )}
           {(session?.user?.userType === 2) && (

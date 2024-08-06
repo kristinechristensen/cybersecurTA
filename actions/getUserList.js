@@ -10,7 +10,7 @@ import School from "@/models/school"
 //get individual users 
 export const getUser = async(id) => {
     const session = await auth();
-    if(!session?.user) return JSON.stringify({error:"You have to be logged in to se a user profile"});
+    if(!session?.user) return JSON.stringify({error:"Not Logged in"});
 
 
     if (!id) return JSON.stringify({error:"What User are you looking for?"})  
@@ -30,7 +30,7 @@ export const getUser = async(id) => {
 // retrieve all users
 export const getUsers = async() => {
     const session = await auth();
-    if(!session?.user) return JSON.stringify({error: "You have to be logged in to see a listing of our users"})
+    if(!session?.user) return JSON.stringify({error: "Not Logged in"})
     try {
         await connectToDB();
         const users = await User.find({}).populate('school'); 
@@ -45,7 +45,7 @@ export const getUsers = async() => {
 // retrieve users from specific schools
 export const getUsersbySchool = async({id}) => {
     const session = await auth();
-    if(!session?.user) return {error: "You have to be logged in to see a listing of users by school"}
+    if(!session?.user) return {error: "Not Logged in"}
     try {
         await connectToDB();
         const usersBySchool = await User.find({school:id}); 

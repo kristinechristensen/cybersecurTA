@@ -43,14 +43,15 @@ const getImg =(pos)=>{
   }
 }
 
+
 return (
   
 <div className="flex flex-wrap p-10 justify-evenly items-center gap-8">
   {userList.map((user,index)=> (
     <Card key={index} className="md:w-1/4 sm:w-full mt-2">
     <CardHeader>
-      <CardTitle className="line-clamp-1">{user.firstName} {user.lastName} | {user.userType}</CardTitle>
-      <CardDescription className="line-clamp-1">{user.school.name} |  {user.pos}</CardDescription>
+      <CardTitle className="line-clamp-1">{user.firstName} {user.lastName} | {(user.userType===0)?'Admin':((user.userType === 1)?'Faculty':'Student')}</CardTitle>
+      <CardDescription className="line-clamp-1">{user.school.name} |  {user.pos || 'Undeclared'}</CardDescription>
       {/* <CardDescription>{`State: ${user.sAddress}`}</CardDescription> */}
     </CardHeader>
     <CardContent>

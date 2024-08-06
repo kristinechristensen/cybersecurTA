@@ -13,11 +13,6 @@ const IndividualUser = ({params})=> {
 const [user, setUser] = useState({});
 const [school, setSchool] = useState({});
 const router = useRouter();
-const {data:session} = useSession();
-
-if(!(session?.user)){
-  router.push('/');
-}
 useEffect(()=> {
     const getData = async ()=> {
         const data = await getUser(params.id);

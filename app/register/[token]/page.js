@@ -6,7 +6,7 @@ import { getTokenValues } from "@/actions/invite";
 import { getSchools } from "@/actions/getSchools";
 import userRegistration from "@/actions/register";
 import { useRouter } from "next/navigation";
-
+import PageHeader from "@/components/pageHeader";
   
     const RegisterUser = ({ params }) => {
     const token = params.token;
@@ -68,7 +68,8 @@ import { useRouter } from "next/navigation";
 
     return (
         //create form 
-
+       <div>
+        <PageHeader title="Congratulations on Being Invited!" />
         <form onSubmit={registerHandler}>
             <input type="text" name="email" value={email} disabled />  {/*coming from the token */}
             <input type="text" name="firstName" value={firstName} onChange={(e) => { setFirstName(e.target.value) }} />
@@ -85,6 +86,7 @@ import { useRouter } from "next/navigation";
 
             <input type="submit" value="Register" />
         </form>
+        </div>
     )
 }
 

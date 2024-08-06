@@ -8,14 +8,6 @@ import { useEffect } from "react";
 
 
 const showAllCourses = ({params})=> {
-    const {data:session} = useSession();
-    const router = useRouter();
-    useEffect(()=> {
-        if(!(session?.user)){
-          router.push('/');
-        }
-    },[]
-)
     return  <ManageCourse update={true} id={params?.id}/>
     
 

@@ -14,15 +14,15 @@ const individualSchool = ({params})=> {
 const [schoolData, setSchoolData] = useState({});
 const [pending, startTransition] = useTransition();
 
-const {data:session} = useSession();
 const router = useRouter();
 useEffect(()=> {
-    if(!(session?.user)){
-        router.push('/');
-      }
     const getData = async ()=> {
         const data = await getSchool(params.id);
         const parseSchool = JSON.parse(data);
+        if(parseSchool.error && parseSchool.error=="Not Logged in") {
+            router.push('/')
+            return null;
+        }
         setSchoolData(parseSchool.school)
     }
 

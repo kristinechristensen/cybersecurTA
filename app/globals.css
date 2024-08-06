@@ -59,7 +59,7 @@
   }
   input[type="text"], input[type="password"], textarea, input[type="email"], select {
     border:solid 1px #bcbcbc;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 10px;
   }
   form{

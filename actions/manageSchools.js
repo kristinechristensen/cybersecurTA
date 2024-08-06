@@ -6,7 +6,8 @@ import {auth} from "@/auth"
 //3 actions - one to get individual school, one to update, and one to insert a new school
 
 export const getSchool = async(id) => {
-
+    const session = await auth();
+    if(!session?.user) return JSON.stringify({error:'Not Logged in'});
     if (!id) return {error:"What school are you looking for?"}  
    
     try {

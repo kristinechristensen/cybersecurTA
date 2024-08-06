@@ -5,7 +5,9 @@ import {auth} from "@/auth"
 
 //get individual course 
 export const getCourse = async(id) => {
-
+    const session = await auth();
+    if(!session?.user) return JSON.stringify({error:'Not Logged in'});
+    
     if (!id) return JSON.stringify({error:"What Course are you looking for?"})  
    
     try {
@@ -22,7 +24,8 @@ export const getCourse = async(id) => {
 
 //get all of the courses by school and add users that created the courses
 export const getCourses = async(schoolid) => {
-
+    const session = await auth();
+    if(!session?.user) return JSON.stringify({error:'Not Logged in'});
     if (!schoolid) return JSON.stringify({error:"What school are you looking for?"})  
    
     try {

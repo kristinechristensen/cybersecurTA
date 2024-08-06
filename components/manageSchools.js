@@ -6,12 +6,13 @@ import { getSchool, updateSchool, insertSchool } from "@/actions/manageSchools";
 import PageHeader from "./pageHeader";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation"
 
 
 // 3 actions get school, update, and insert
 //create a function to get School Information 
 const ManageSchool = ({ update = false, id }) => {
-
+  const router = useRouter();
   {/* Display Basic School Info */ }
   const [schoolName, setSchoolName] = useState("");
   const [schoolsAddress, setSchoolsAddress] = useState("");
@@ -29,7 +30,10 @@ const ManageSchool = ({ update = false, id }) => {
     startTransition(() => {
       getSchool(id).then((data) => {
         data = JSON.parse(data);
-
+        if(data.error && data.error=="Not Logged in") {
+          router.push('/')
+          return null;
+        }
         if (data.error) {
           setError(data.error)
         }

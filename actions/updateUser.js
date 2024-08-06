@@ -9,8 +9,8 @@ import School from "@/models/school"
 
 export const getUser = async() =>{
 
-    const session = await auth(); //get session data from user 
-
+    const session = await auth(); //get session data from user
+    if(!session?.user) return JSON.stringify({error:'Not Logged in'});
     if(session?.user) {
         try {
             await connectToDB();

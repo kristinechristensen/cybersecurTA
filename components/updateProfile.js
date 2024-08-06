@@ -2,7 +2,7 @@
 import { useState } from "react"; 
 import { useEffect } from "react";
 import { useTransition } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation"
 import csInterests from "@/userData/interests";
 import csSkills from "@/userData/skills";
 import csPOS from "@/userData/pos";
@@ -16,6 +16,7 @@ import { Button } from "./ui/button";
 
 const UpdateUser =()=>{
 
+  const router = useRouter();
     {/* Display Basic User Info */}
     const [firstName, setFirstName] = useState("");{/*read only */}
     const [lastName, setLastName] = useState("");{/*read only */}
@@ -53,7 +54,10 @@ const UpdateUser =()=>{
             getUser().then((data)=> {
                 
                 data = JSON.parse(data);
-                
+                if(data.error && data.error=="Not Logged in") {
+                  router.push('/')
+                  return null;
+              }
                 if (data.error) {
                     setError(data.error)
                 }
@@ -122,7 +126,7 @@ const formSubmit = (e)=>{
 
         <form onSubmit={formSubmit}>
         {/* Basic User Info */}
-        <div className="w-1/2">
+        <div className="md:w-1/2 sm:w-full">
           <div>
             <label>First Name:</label>
             <input type="text" value={firstName} readOnly disabled/>
@@ -136,12 +140,12 @@ const formSubmit = (e)=>{
             <input type="email" value={email} readOnly />
           </div>
           <div>
-            <label>GMail:</label>
-            <input type="email" value={gmail} onChange={(e) => setGmail(e.target.value)}/>
+            <label>Google Mail:</label>
+            <input type="email" value={gmail} onChange={(e) => setGmail(e.target.value)} autoComplete="new-password"/>
           </div>
           <div>
             <label>Password:</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="new-password"/>
           </div>
           <div>
             <label>School:</label>
@@ -173,6 +177,10 @@ const formSubmit = (e)=>{
             <input type="text" value={zip} onChange={(e) => setZip(e.target.value)} />
           </div>
           {/* Educational Info */}
+         
+        </div>
+        
+          <div className="md:w-1/2 sm:w-full">
           <div>
             <label>Program of Study (POS):</label>
             {/*map the pos  */}
@@ -183,9 +191,6 @@ const formSubmit = (e)=>{
                   ))}
            </select>
           </div>
-        </div>
-        
-          <div className="w-1/2">
           <div>
             <label>Level:</label>
             <select value={level} onChange={(e) => {if(e.target.value != "") setLevel(e.target.value)}}>
