@@ -61,7 +61,7 @@ export const InviteForm = () => {
           )}
       </div>
 
-            <Button type="submit" variant="custom">Submit </Button>
+            <Button type="submit" variant="custom">Create an Invitation Token </Button>
             {success && (
             <div className="bg-emerald-500/15 p-3 rounded-md flex items-center justify-between gap-x-2 text-sm text-blue-500">
               <p className="">Link is ready click the icon to copy it!
