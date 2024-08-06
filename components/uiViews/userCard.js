@@ -37,7 +37,7 @@ const getImg =(pos)=>{
       case "Penetration Testing and Ethical Hacking":
           return "/pos/pentesting.png";   
       default:
-          return "/pos/ask.png"
+          return "/pos/undeclared.png"
       
 
   }

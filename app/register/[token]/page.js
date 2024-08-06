@@ -77,7 +77,7 @@ const RegisterUser = ({ params }) => {
                     <div className="md:w-1/2 sm:w-full p-6">
                         <h2 className="text-4xl font-semibold mb-4">Welcome to <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span><span className="bg-clip-text text-red-600 font-semibold">TA</span> !</h2>
 
-                        <Image src="/assets/congratsTA.jpg" width="400" height="400" align="left" alt="Students working together"              className="mr-8 rounded-lg drop-shadow-lg" />
+                        <Image src="/assets/congratTA.jpg" width="400" height="400" align="left" alt="Congratulations!"              className="mr-8 rounded-lg drop-shadow-lg" />
                         <p className="text-lg pt-2">
                             This invitation marks the start of your cybersecurity education journey! You're joining a collaborative community of faculty and learners and will gain  access to valuable resources and connections. </p>
                         <p className="text-lg pt-2">This platform will connect you with like-minded individuals, seasoned faculty, and resources that can enance your skills and knowledge. Take a moment to carefully fill out all fields in the regisratio form.</p>
