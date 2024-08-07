@@ -28,6 +28,7 @@ const Links = ()=>{
       <Link href="/schools" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/schools')?"text-red-700":"text-blue-950"))}>Schools</Link>
       <Link href="/users" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/users')?"text-red-700":"text-blue-950"))}>Users</Link>
       <Link href="/profile" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/profile')?"text-red-700":"text-blue-950"))}>Profile</Link>
+      <Link href="/testimonials" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/testimonials')?"text-red-700":"text-blue-950"))}>Testimonials</Link>
       {(session?.user?.userType === 1 || session?.user?.userType === 0) && (
              <Link href="/manageCourses" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/manageCourses')?"text-red-700":"text-blue-950"))}>Manage Courses</Link>
       )}
