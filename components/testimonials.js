@@ -21,6 +21,10 @@ const TestimonialList = () => {
         //     // router.push('/')
         //     // return null;
         // }
+        if(resp.error){
+            console.error(resp.error);
+            return;
+        }
         setTestimony([...resp]);
     }
     useEffect(() => {

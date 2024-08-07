@@ -106,7 +106,7 @@ export const updateCourse = async(id, title, crn, desc,level, nTA) => {
 // generate a list of courses by faculty
 export const facultyCourses = async()=>{
     const session = await auth(); 
-
+    if(!session?.user || (session?.user?.userType !==0 && session?.user?.userType !==1)) return JSON.stringify({error:'Not Logged in'});
     if(session?.user?.userType == 0 || session?.user?.userType == 1) {
 
     try {
