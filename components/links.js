@@ -24,21 +24,21 @@ const Links = ()=>{
   }
   return(
     <>
-      <Link href="/" className={cn("font-bold hover:text-red-600 mx-2", (path=='/'?"text-red-700":"text-blue-950"))}>Home</Link>
-      <Link href="/schools" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/schools')?"text-red-700":"text-blue-950"))}>Schools</Link>
-      <Link href="/users" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/users')?"text-red-700":"text-blue-950"))}>Users</Link>
-      <Link href="/profile" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/profile')?"text-red-700":"text-blue-950"))}>Profile</Link>
-      <Link href="/testimonials" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/testimonials')?"text-red-700":"text-blue-950"))}>Testimonials</Link>
+      <Link href="/" title="Home" className={cn("font-bold hover:text-red-600 mx-2", (path=='/'?"text-red-700":"text-blue-950"))}>Home</Link>
+      <Link href="/schools" title="Schools" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/schools')?"text-red-700":"text-blue-950"))}>Schools</Link>
+      <Link href="/users" title="Users"className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/users')?"text-red-700":"text-blue-950"))}>Users</Link>
+      <Link href="/profile" title="Your Profile"className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/profile')?"text-red-700":"text-blue-950"))}>Profile</Link>
+      <Link href="/testimonials" title="Testimonials"className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/testimonials')?"text-red-700":"text-blue-950"))}>Testimonials</Link>
       {(session?.user?.userType === 1 || session?.user?.userType === 0) && (
-             <Link href="/manageCourses" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/manageCourses')?"text-red-700":"text-blue-950"))}>Manage Courses</Link>
+             <Link href="/manageCourses" title="Manage Courses"className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/manageCourses')?"text-red-700":"text-blue-950"))}>Manage Courses</Link>
       )}
         {(session?.user?.userType === 0) &&( 
-             <Link href="/manageSchools" className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/manageSchools')?"text-red-700":"text-blue-950"))}>Manage Schools</Link>
+             <Link href="/manageSchools" title="Manage Schools "className={cn("font-bold hover:text-red-600 mx-2", (path.includes('/manageSchools')?"text-red-700":"text-blue-950"))}>Manage Schools</Link>
           )}
      
          
       
-      <Button size="sm" variant="link" className="px-3" onClick={endSession}><FiLogOut className="text-red-600 w-4 h-4 text-bold"/></Button>
+      <Button size="sm" variant="link" title="Log Out"className="px-3" onClick={endSession}><FiLogOut className="text-red-600 w-4 h-4 text-bold"/></Button>
     </>
   )
 }

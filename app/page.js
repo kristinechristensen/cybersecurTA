@@ -59,7 +59,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* Content for admins and faculty */}
+        {/* Content for faculty (1) or admin (0) */}
         {(session?.user?.userType === 1 || session?.user?.userType === 0) && (
           <div className="flex flex-wrap md:w-full sm:w-full">
             <div className="md:w-1/2 sm:w-full items-start justify-center flex p-4">
@@ -73,14 +73,15 @@ export default function Home() {
                 <span className="bg-clip-text text-red-600">TA!</span>
               </h3>
               <p>
-                {session?.user?.name}, to select a quality student for <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span>
-                <span className="bg-clip-text text-red-600 font-semibold">TA</span>, consider their academic performance, demonstrated skills in cybersecurity, and passion for teaching. Look for candidates with strong technical knowledge, relevant certifications, and hands-on experience in cybersecurity projects.
+                <span className="font-semibold">{session?.user?.name},</span> to select a quality student for <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span>
+                <span className="bg-clip-text text-red-600 font-semibold">TA</span>, consider their academic performance, demonstrated skills in cybersecurity, and passion for teaching. Look for candidates with strong technical knowledge, relevant certifications, and hands-on experience in cybersecurity projects. Prioritize students who exhibit excellent communication skills, a collaborative mindset, and a genuine interest in educating others.
               </p>
               <p className="my-4">
-                Additionally, prioritize students who exhibit excellent communication skills, a collaborative mindset, and a genuine interest in educating others. Remember, <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span>
+                 Remember, <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span>
                 <span className="bg-clip-text text-red-600 font-semibold">TA</span> is an <span className="font-bold">invite-only</span> platform, so your selection ensures we maintain a high standard of excellence and dedication within our community.
-              </p>
-              <InviteForm />
+              </p> 
+              <p className="m-0 p-0 text-2xl text-blue-900 font-semibold">Enter the Student Email Account Below to Generate a Invitation Token:</p> 
+              <InviteForm className="mt-0"/>
               </div>
             </div>
           </div>

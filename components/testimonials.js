@@ -5,6 +5,9 @@ import { getTestimonials } from "@/actions/getTestimonials"
 import { TestimonialCards } from "./uiViews/testimonialCards" 
 import PageHeader from "./pageHeader"
 import { useRouter } from "next/navigation"
+
+
+
 //show school listing
 
 const TestimonialList = () => {
@@ -14,10 +17,10 @@ const TestimonialList = () => {
     const getData = async()=>{
         const values = await getTestimonials();
         const resp = JSON.parse(values);
-        if(resp.error && resp.error=="Not Logged in") {
-            router.push('/')
-            return null;
-        }
+        // if(resp.error && resp.error=="Not Logged in") {
+        //     // router.push('/')
+        //     // return null;
+        // }
         setTestimony([...resp]);
     }
     useEffect(() => {
@@ -27,7 +30,8 @@ const TestimonialList = () => {
     return (
 
         <div>
-            <PageHeader title="Testimonials"/>
+            <PageHeader title="Hear from Our Participants"/>
+
             <TestimonialCards testimonyList={testimony} />
 
         </div>

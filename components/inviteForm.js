@@ -40,9 +40,8 @@ export const InviteForm = () => {
 
     return (
         //create form 
-        <form onSubmit={(e) => submitInvite(e)} className="flex-col gap-3">
-           <h2 className="m-0 p-0 text-2xl text-blue-900 font-semibold">Enter the Student Email Account Below to Generate a Invitation Token:</h2> 
-           <div className="m-0 p-0">
+        <form onSubmit={(e) => submitInvite(e)} className="flex-col flex gap-3 mb-0 p-0">
+               <div className="m-0 p-0">
                <label className="mb-0">Student Email Address</label>
                <input type="text" name="email" value={email} className="mb-0" onChange={(e) => { setEmail(e.target.value) }} />
            </div>
@@ -61,7 +60,7 @@ export const InviteForm = () => {
           )}
       </div>
 
-            <Button type="submit" variant="custom">Create an Invitation Token </Button>
+            <Button type="submit" className="text-xl" variant="custom">Create an Invitation Token </Button>
             {success && (
             <div className="bg-emerald-500/15 p-3 rounded-md flex items-center justify-between gap-x-2 text-sm text-blue-500">
               <p className="">Link is ready click the icon to copy it!

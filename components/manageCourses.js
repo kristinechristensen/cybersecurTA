@@ -31,6 +31,7 @@ const ManageCourse = ({ update = false, id }) => {
           router.push('/')
           return null;
         }
+       
         if (courseData.error) {
             setError(courseData.error)
         }

@@ -17,7 +17,7 @@ export const Header = () => {
     <header className="bg-white sticky top-0 z-[20] mx-auto flex w-full flex-wrap items-center justify-between border-b-4 border-blue-950 p-7 transition-all text-xl">
       <div className='flex gap-3 justify-center items-center'>
        <Link href="/">
-        <Image src="/csTALogo2.svg" width={350} className={styles.logo} height={80} alt="CybersecurTA" /></Link>
+        <Image src="/csTALogo2.svg" width={350} className={styles.logo} height={80} alt="CybersecurTA" title="CybersecurTA logo"/></Link>
         {/* <FiLock className="h-6 w-6 text-red-600" />
         <IoIosLock className="h-6 w-6 text-red-600" />
         <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-50 dark:text-white"><Link href="/">CyberSecurTA</Link></span> */}
