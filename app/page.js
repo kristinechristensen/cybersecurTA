@@ -6,6 +6,7 @@ import { InviteForm } from "@/components/inviteForm";
 import { useSession } from "next-auth/react";
 import "./embla.css";
 import EmblaCarousel from "@/components/slider";
+import { FaFish } from "react-icons/fa6";
 
 
 
@@ -103,13 +104,15 @@ export default function Home() {
      {session?.user?.name}!
    </h3>
    <p>
-    o select a quality student for <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span>
-     <span className="bg-clip-text text-red-600 font-semibold">TA</span>, consider their academic performance, demonstrated skills in cybersecurity, and passion for teaching. Look for candidates with strong technical knowledge, relevant certifications, and hands-on experience in cybersecurity projects.
+   You can explore a diverse range of participating schools, each offering unique programs and specializations. Connect with experienced teachers who are passionate about mentoring the next generation of cybersecurity experts. Browse through various courses to find those that align perfectly with your interests and career goals. As you navigate the platform, you'll be able to update your profile, showcasing your skills and aspirations to potential mentors and institutions.
    </p>
    <p className="my-4">
-     Additionally, prioritize students who exhibit excellent communication skills, a collaborative mindset, and a genuine interest in educating others. Remember, <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span>
-     <span className="bg-clip-text text-red-600 font-semibold">TA</span> is an <span className="font-bold">invite-only</span> platform, so your selection ensures we maintain a high standard of excellence and dedication within our community.
+   This is your gateway to finding the ideal CyberSecurTA position – one that will enhance your knowledge, provide valuable teaching experience, and help you make meaningful connections in the field. Are you ready to explore all that 
+   <span className="bg-clip-text text-blue-900 font-semibold"> CyberSecur</span>
+     <span className="bg-clip-text text-red-600 font-semibold">TA</span> has to offer?
    </p>
+   <p><span className="font-bold flex items-center"><FaFish className="mr-2 text-4xl text-red-600" />Need a classroom resource? </span> Check out the latest <Link href="/phish" alt="Check out my third party API call!" className="font-bold text-cyan-700 hover:text-red-600 ">phishing attempt information</Link> from PhishStats.  </p>
+   
    </div>
  </div>
 </div>

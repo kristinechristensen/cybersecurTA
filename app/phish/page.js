@@ -11,9 +11,11 @@ const ShowData = ({records})=>{
         <div>
         <PageHeader title="Be Aware" phish={true}/>
 
-        <div className="p-6">
-            <p className="w-full flex items-center"> <FaFish className="mr-2 text-4xl" />
-            This is a report of recent Phishing Attempts - this resource can be used in the classroom for teaching packet inspection and general cybersecurity awareness. </p>
+        <div className="px-20">
+            <p className="w-full flex items-center text-xl mb-4"> <FaFish className="mr-2 text-4xl text-red-600" />
+            This is a report of recent Phishing Attempts - this resource can be used in the classroom for teaching packet inspection and general cybersecurity awareness.</p> 
+            
+            <p w-full flex items-center text-xl mb-4>This data provides real-world examples of recent phishing attempts, which is valuable for cybersecurity education and awareness. It helps students and users recognize common patterns in cyber threats, making the learning experience more practical and relevant. By exposing people to current phishing tactics, it improves their ability to identify and protect against potential threats in their own digital interactions. </p>
             <div className="flex flex-wrap justify-center items center">
             {
                 records.map((elem)=>{
@@ -50,7 +52,7 @@ const PhishList =  ()=>{
             const dataParsed = await data.json();
             setRecords([...dataParsed]);
             }catch(error){
-                alert("Something happened, not phish for you");
+                alert("Something happened, no phish for you");
             }
         }
         getData();
