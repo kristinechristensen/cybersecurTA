@@ -29,7 +29,7 @@ export default function Home() {
         {!(session?.user) && (
           <div className="flex flex-wrap md:w-full sm:w-full">
             <div className="md:w-1/2 sm:w-full items-start justify-center  flex p-4">
-              <Image src="/assets/students1.jpg" width="700" height="300" className="rounded-lg dropshadow-xl mr-4" alt="Students working together"
+              <Image src="/assets/students1.jpg" width="700" height="300" className="rounded-lg dropshadow-2xl mr-4" alt="Students working together"
               />
             </div>
             <div className="md:w-1/2 sm:w-full">
@@ -63,7 +63,7 @@ export default function Home() {
         {(session?.user?.userType === 1 || session?.user?.userType === 0) && (
           <div className="flex flex-wrap md:w-full sm:w-full">
             <div className="md:w-1/2 sm:w-full items-start justify-center flex p-4">
-            <Image src="/assets/students2.jpg" width="700" height="300" className="rounded-lg dropshadow-xl mr-4" alt="Students working together"
+            <Image src="/assets/students2.jpg" width="700" height="300" className="rounded-lg drop-shadow-xl mr-4" alt="Students working together"
               />
             </div>
             <div className="md:w-1/2 sm:w-full">

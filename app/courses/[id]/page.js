@@ -32,26 +32,28 @@ return (
 <PageHeader title={courseData?.crn + ": " + courseData?.title} />
 
 <div className="flex flex-wrap text-lg">
-<div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-end pr-20 items-center"> 
+<div className="md:w-1/2 sm:w-full px-30 flex flex-column justify-end pr-20 items-start"> 
         <Image src={courseData?.schoolId?.photo} alt={courseData?.schoolId?.name} width={400} height={400} className="rounded hidden sm:block" /> 
 
     </div>
-    <div className="md:w-1/2 sm:w-full px-5 flex flex-col justify-center items-start h-80">
+    <div className="md:w-1/2 sm:w-full px-5 flex flex-col justify-center items-start ">
+    <div className="w-3/4">
+    <p className="mb-2"><span className="font-semibold">Description: </span> {courseData?.desc}</p>
+    <p className="mb-2"><span className="font-semibold">Number of TAs Needed: </span> {courseData?.nTA}</p>
+    <p className="mb-2"><span className="font-semibold">College: </span>{courseData?.schoolId?.name}</p>
 
-    <p><span className="font-semibold">Description: </span> {courseData?.desc}</p>
-    <p><span className="font-semibold">Number of TAs Needed: </span> {courseData?.nTA}</p>
-    <p><span className="font-semibold">College: </span>{courseData?.schoolId?.name}</p>
+        <p className="mb-2"><span className="font-semibold">Professor: </span> {courseData?.userId?.firstName} {courseData?.userId?.lastName} </p>
+       <p className="font-semibold">Contact Information:</p> 
+       
+        <div className="ml-2"> <span className="font-semibold">Email:</span> <Link href={"mailto:"+courseData?.userId?.email}>{courseData?.userId?.email} </Link> 
+        <p><span className="font-semibold">Phone:</span> {courseData?.userId?.phone}</p>
 
-        <p><span className="font-semibold">Professor: </span> {courseData?.userId?.firstName} {courseData?.userId?.lastName} </p>
-        <Link href={"mailto:"+courseData?.userId?.email}>{courseData?.userId?.email} </Link>
-        {courseData?.userId?.phone}
-
-
+        </div>
         <p className="mt-4">
             <Link href={"/schools/"+courseData?.schoolId?._id}>  <Button variant="custom" >Back to School Listing </Button> </Link>
         </p>
     </div>
-
+</div>
 </div>
 
 </div>

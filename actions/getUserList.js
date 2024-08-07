@@ -33,7 +33,7 @@ export const getUsers = async() => {
     if(!session?.user) return JSON.stringify({error: "Not Logged in"})
     try {
         await connectToDB();
-        const users = await User.find({}).populate('school'); 
+        const users = await User.find({}).sort({lastName:"asc"}).populate('school'); 
         return JSON.stringify(users)
     }
     catch(error) {

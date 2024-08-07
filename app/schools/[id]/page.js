@@ -35,11 +35,12 @@ return (
 
  
  <div className="flex flex-wrap text-lg">
- <div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-end pr-20 items-center"> 
-         <Image src={schoolData?.photo} alt={schoolData?.name} width={400} height={400} className="rounded hidden sm:block"/> 
+ <div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-end pr-20 items-start"> 
+         <Image src={schoolData?.photo} alt={schoolData?.name} width={500} height={400} className="rounded hidden sm:block"/> 
      </div>
-     <div className="md:w-1/2 sm:w-full px-24 flex flex-column items-center h-80">
-         <div>
+     <div className="md:w-1/2 sm:w-full flex flex-column items-center mb-40">
+         <div className="w-3/4">
+            <h2 className="text-3xl font-bold mt-10 mb-2">About</h2>
              <p className="mb-6">{schoolData?.desc}</p>
              <Link href="/schools"> <Button variant="custom" >Back to School Listing </Button> </Link>
          </div>

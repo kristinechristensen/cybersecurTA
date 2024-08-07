@@ -74,13 +74,14 @@ return (
 <div className="flex flex-wrap">
 <PageHeader title={user?.firstName+" "+user?.lastName + ": " + getUserType(user?.userType)}/>
 
-<div className="md:w-1/2 sm:w-full p-x-24 flex flex-column justify-end pr-20 items-center"> 
+<div className="md:w-1/2 sm:w-full px-24 flex flex-column justify-end items-start mt-8"> 
 <Image src={getImg(user?.pos)} alt={user?.firstName} width={400} height={300} className="rounded hidden sm:block"/> 
 </div>
 
-<div className="md:w-1/2 sm:w-full p-x-24 flex flex-column items-center sm:justify-center md:justify-start">
+<div className="md:w-1/2 sm:w-full px-24 flex flex-column items-center sm:justify-center md:justify-start">
 
-    <div className="mt-8 sm:p-x-12 md:p-x-0">
+    <div className="mb-8 mt-4 sm:px-12 md:px-10">
+        <div className="w-3/4">
         <h3 className="mt-2 font-semibold"> Skills: </h3>
         <ul className="ml-6">{user?.skills?.map((elem, index)=>(
             <li key={index+""+elem} className="list-image-[url(/assets/bCheck.svg)]">{elem}</li>
@@ -88,22 +89,24 @@ return (
         </ul>
         <h3 className="mt-2 font-semibold"> Interests: </h3>
         <ul className="ml-6">{user?.interests?.map((elem, index)=>(
-            <li key={index+""+elem}>{elem}</li>
+            <li key={index+""+elem} className="list-image-[url(/assets/bCheck.svg)]">{elem}</li>
         ))}
         </ul>
         <h3 className="mt-2 font-semibold"> Certifications: </h3>
         <ul className="ml-6">{user?.certs?.map((elem, index)=>(
-            <li key={index+""+elem}>{elem}</li>
+            <li key={index+""+elem}className="list-image-[url(/assets/bCheck.svg)]">{elem}</li>
         ))}
         </ul>
-        <h2 className="mt-2 font-semibold">Attending</h2>
-        <p className="font-medium ml-4">{school?.name}</p>
+        <h2 className="mt-2 font-semibold">School: {school?.name} </h2>
         <p className="ml-4">{school?.desc}</p>
+        <h2 className="mt-2 font-semibold">Bio</h2>
+        <p className="ml-4">{user?.bio}</p>
         <h2 className="mt-2 font-semibold">Contact Information</h2>
         <p className="ml-4"> Email Address: <Link href={"mailto:"+user?.email}>{user?.email}</Link></p>
         <p className="ml-4"> {user?.linkedIn && (<Link href={user?.linkedIn}><p>LinkedIn: {user?.linkedIn}</p></Link>)}</p>
-        <p className="m-4">
-        <Link href="/users"><Button variant="custom">Back to Participants Listing </Button> </Link></p>
+        <p className="my-4">
+        <Link href="/users"><Button variant="custom"  className="w-full">Back to Participants Listing </Button> </Link></p>
+        </div>
     </div>
 </div>
 

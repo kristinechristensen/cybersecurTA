@@ -92,7 +92,7 @@ const ManageCourse = ({ update = false, id }) => {
 
   return (
     <div>
-      <PageHeader title={`Edit Course: ${courseTitle}`} />
+      <PageHeader title={`Add / Edit: ${courseTitle}`} />
 
     <div className="flex flex-wrap mt-9 w-full">
      <div className="w-full px-24 flex flex-col justify-start items-center">

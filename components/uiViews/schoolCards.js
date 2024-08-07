@@ -17,7 +17,7 @@ console.log(schoolList);
 
 return (
   
-<div className="flex flex-wrap p-10 justify-evenly items-center gap-y-3">
+<div className="flex flex-wrap p-10 justify-evenly items-center gap-8">
   {schoolList.map((school,index)=> (
     <Card key={index} className="md:w-1/4 sm:w-full">
     <CardHeader>
