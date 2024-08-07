@@ -17,12 +17,9 @@ const TestimonialList = () => {
     const getData = async()=>{
         const values = await getTestimonials();
         const resp = JSON.parse(values);
-        // if(resp.error && resp.error=="Not Logged in") {
-        //     // router.push('/')
-        //     // return null;
-        // }
         if(resp.error){
-            console.error(resp.error);
+            alert(resp.error)
+            console.log(resp.error);
             return;
         }
         setTestimony([...resp]);

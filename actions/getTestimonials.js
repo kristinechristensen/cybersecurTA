@@ -15,5 +15,4 @@ export const getTestimonials = async()=>{
         console.log(error.message)
         return JSON.stringify({error:error});
     }
-    return{}  
 }

@@ -69,7 +69,7 @@ export default function Home() {
             </div>
             <div className="md:w-1/2 sm:w-full">
             <div className="w-5/6">
-            <h3 className="font-bold pb-2 text-gray-900 sm:text-2xl md:text-5xl my-4">
+            <h3 className="font-bold pb-2 text-gray-900 sm:text-2xl md:text-3xl my-4">
                 Invite a Student to Join <span className="bg-clip-text text-blue-900">CyberSecur</span>
                 <span className="bg-clip-text text-red-600">TA!</span>
               </h3>
