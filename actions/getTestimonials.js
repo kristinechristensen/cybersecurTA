@@ -2,7 +2,6 @@
 "use server";
 import connectToDB from "@/utils/database";
 import User from "@/models/user";
-import { auth } from "@/auth";
 
 export const getTestimonials = async()=>{
 

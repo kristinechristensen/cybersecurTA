@@ -13,13 +13,12 @@ import { useRouter } from "next/navigation"
 const TestimonialList = () => {
     
     const [testimony, setTestimony] = useState([]);
-    const router = useRouter();
     const getData = async()=>{
         const values = await getTestimonials();
         const resp = JSON.parse(values);
         if(resp.error){
-            console.log(resp.error);
-            // return;
+            console.log(resp);
+            return;
         }
         setTestimony([...resp]);
     }
