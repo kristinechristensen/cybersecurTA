@@ -19,27 +19,8 @@ export const TempUserList = ()=>{
     const [pos, setPos] = useState(' ');
     const [skills, setSkills] = useState(' ');
     const [certs, setCerts] = useState(' ');
-    const [interets, setInterets] = useState(' ');
     const router = useRouter();
-    // const handleFilter = (value)=>{
-    //     if(value.type){
-    //         setType(value.type);
-    //         let newArr = users.filter(elem=>{
-    //             if(value.type==-1) return true;
-    //             else return elem.userType==value.type;
-    //         });
-            // newArr = newArr.filter(elem=>elem.pos.includes(pos));
-            // newArr = newArr.filter(elem=>elem.skills.includes(skills));
-            // newArr = newArr.filter(elem=>elem.certs.includes(certs));
-            // newArr = newArr.filter(elem=>elem.interests.includes(interests));
-        //     setFilteredUsers([...newArr]);
-        // }else if(value.type){
-            
-        // }
-        // newArr = newArr.filter(elem=>elem.pos.includes(pos));
-        // newArr = newArr.filter(elem=>elem.skills.includes(skills));
-        
-    // }
+
     const handleFilter = ()=>{
         let newArr = users.filter(elem=>{
             if(type==-1) return true;
@@ -47,7 +28,6 @@ export const TempUserList = ()=>{
         });
         newArr = newArr.filter(elem=>{
             if(pos===' ')return true;
-            console.log(elem.pos)
             return elem.pos && elem.pos.toLowerCase().trim()==pos.toLowerCase().trim()
         });
         newArr = newArr.filter(elem=>{

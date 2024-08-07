@@ -7,6 +7,7 @@ import credentials from "next-auth/providers/credentials";
 
 /*Object to handle the authentication which uses
 properties from NextAuth and places those in an array with Google and Credentials Object */
+//signIn('google')
 
 export const {handlers, signIn, signOut, auth} = NextAuth({
     providers:[Google, 
@@ -33,11 +34,9 @@ export const {handlers, signIn, signOut, auth} = NextAuth({
             try {
               await connectToDB();
               const user = await User.findOne({emailG:profile.email}); //profile grabs data from google servers
-           console.log(profile.email);
               if(user)valid=true;
             } catch (error) {
               valid = false;
-              console.log("WHYYYYYYYY") 
             }
           }else if(account.provider === "credentials"){  //security of account
             valid = true;
@@ -54,7 +53,6 @@ export const {handlers, signIn, signOut, auth} = NextAuth({
                 token.gmail = user.emailG;
             
                 token.name = user.firstName;
-                
                 token.userType = user.userType; 
                 token.pos = user.pos || undefined; 
                 token.id = user._id; //use logging in with Gcredentials

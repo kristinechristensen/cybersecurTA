@@ -9,11 +9,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "../ui/button"
 
+//props
 export const SchoolCards = ({schoolList, showEdit}) => {
 
 //render the list and use shadcn component
-console.log(schoolList);
-
+// console.log(schoolList);
+//const {schoolList, showEdit} = props;
 
 return (
   
