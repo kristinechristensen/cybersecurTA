@@ -50,11 +50,11 @@ export const {handlers, signIn, signOut, auth} = NextAuth({
                 await connectToDB();
                 const user = await User.findOne({emailG:profile.email}); 
                 token.email = user.email;  //user from the database
-                console.log("dammit");
+           
                 token.gmail = user.emailG;
-                console.log("Shoot");
+            
                 token.name = user.firstName;
-                console.log("firstname");
+                
                 token.userType = user.userType; 
                 token.pos = user.pos || undefined; 
                 token.id = user._id; //use logging in with Gcredentials

@@ -29,7 +29,7 @@ const RegisterUser = ({ params }) => {
     useEffect(() => {
         startTransition(() => {  //parse the token and get school list from db 
 
-            getSchools().then((data) => {
+            getSchools(true).then((data) => {
                 data = JSON.parse(data);
                 setSchoolList([...data]);
                 setSchool(data[0]._id)

@@ -95,7 +95,7 @@ export default function Home() {
     Welcome to 
      <span className="bg-clip-text text-blue-900"> CyberSecur</span>
      <span className="bg-clip-text text-red-600">TA: </span>
-     {session?.user?.firstName}
+     {session?.user?.name}
    </h3>
    <p>
     o select a quality student for <span className="bg-clip-text text-blue-900 font-semibold">CyberSecur</span>
