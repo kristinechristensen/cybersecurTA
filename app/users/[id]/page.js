@@ -101,7 +101,7 @@ return (
         <p className="ml-4">{school?.desc}</p>
         <h2 className="mt-2 font-semibold">Contact Information</h2>
         <p className="ml-4"> Email Address: <Link href={"mailto:"+user?.email}>{user?.email}</Link></p>
-        <p className="ml-4">  {user?.linkedIn && (<Link href={user?.linkedIn}><p>{user?.linkedIn}</p></Link>)}</p>
+        <p className="ml-4"> {user?.linkedIn && (<Link href={user?.linkedIn}><p>LinkedIn: {user?.linkedIn}</p></Link>)}</p>
         <p className="m-4">
         <Link href="/users"><Button variant="custom">Back to Participants Listing </Button> </Link></p>
     </div>

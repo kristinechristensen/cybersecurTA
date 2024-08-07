@@ -79,6 +79,7 @@ const UpdateUser =()=>{
                     setZip(user.zip);
                     setupdatePOS(user.pos);
                     setLevel(user.level);
+                    setTestimony(user.testimony || "");
                     setupdateSkills([...user.skills]);
                     setupdateInterests([...user.interests]);
                     setupdateCerts([...user.certs]);

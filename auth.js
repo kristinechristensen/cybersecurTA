@@ -17,7 +17,7 @@ export const {handlers, signIn, signOut, auth} = NextAuth({
         },
 
         async authorize (credentials, req) {
-            const resp = await fetch("http://localhost:3000/api/users/login", {
+            const resp = await fetch(process.env.URL+"/api/users/login", {
                 method: 'POST',
                 body: JSON.stringify({email:credentials.email, password:credentials.password})
               });
