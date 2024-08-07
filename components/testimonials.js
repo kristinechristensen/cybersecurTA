@@ -18,9 +18,8 @@ const TestimonialList = () => {
         const values = await getTestimonials();
         const resp = JSON.parse(values);
         if(resp.error){
-            alert(resp.error)
             console.log(resp.error);
-            return;
+            // return;
         }
         setTestimony([...resp]);
     }
