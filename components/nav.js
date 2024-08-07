@@ -26,7 +26,7 @@ export const Header = () => {
       {(session?.user?.name)?
       <NavLinks />:
       <div className='flex justify-end items-center gap-2'>
-       <Link href="/testimonials" className={cn("font-bold hover:text-red-600 mx-4", (path.includes('/testimonials')?"text-red-700":"text-blue-950"))}>Testimonials</Link>
+       {/* <Link href="/testimonials" className={cn("font-bold hover:text-red-600 mx-4", (path.includes('/testimonials')?"text-red-700":"text-blue-950"))}>Testimonials</Link> */}
         <Link href='/api/auth/signin'><Button variant="custom">Sign In</Button></Link>
       </div>
       }
