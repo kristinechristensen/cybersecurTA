@@ -27,7 +27,7 @@ export default function RootLayout({ children, session }) {
           &#169;2024 - CyberSecurTA
         </p>
         <p className="w-1/2 mt-4 sm:w-full">
-        <Image src="/assets/nsf.png" width="125" height="125" align="left" alt="CybersecurTA" className="mr-8 drop-shadow-lg" />CyberSecurTA connects cybersecurity students with teaching opportunities, enhancing education nationwide.
+        <Image src="/assets/nsf.png" width="125" height="125" align="left" alt="CybersecurTA" className="mr-8 drop-shadow-lg" />CyberSecurTA connects cybersecurity students with teaching opportunities, enhancing education nationwide.The NCyTE Community College Cybersecurity Fellowship Program is
           Funded by NSF grant #2054724 and Microsoft ACCCE grant #2021080009
         </p> </div>
         <div className="md:w-1/2 sm:w-full text-right">
