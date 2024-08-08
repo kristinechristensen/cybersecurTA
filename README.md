@@ -30,7 +30,7 @@ The following technologies and resources were used to develop CyberSecurTA:
 
 ## How to Use: Getting Started
 
-### First, ensure you have the following installed on your system:
+### First, ensure you have the following installed on your system and setup:
 1. Node.js: [https://nodejs.org]
 2. npm - this should come with Node.js
 3. GitHub Desktop: [https://desktop.github.com/download/]
